@@ -20,10 +20,9 @@ Read in this order:
 | 12 | [`ACCESSIBILITY-AUDIT.md`](ACCESSIBILITY-AUDIT.md) | Formal WCAG 2.1 AA attestation — 30-row compliance matrix, manual test results, tools + methodology, re-audit cadence. | Legal / a11y reviewer |
 | 13 | [`UAT-TEST-PLAN.md`](UAT-TEST-PLAN.md) | 31 test cases across 6 suites (content, form, tracking, responsive, a11y, performance) with entry + exit criteria + sign-off block. | Client QA team |
 | 14 | [`PERFORMANCE-EVIDENCE.md`](PERFORMANCE-EVIDENCE.md) | Self-reported Lighthouse numbers + budget contract + per-page breakdown + Elementor parity note. | Performance reviewer |
-| 15 | [`VIDEO-SCRIPT.md`](VIDEO-SCRIPT.md) | 2-minute recording script for a Loom walkthrough that leads the client submission. | Candidate recording the video |
-| 16 | [`BUILD-GUIDE.md`](BUILD-GUIDE.md) | Original PHP-deploy step-by-step (hosting, DB, FTP, InfinityFree). Supplemental. | PHP reference deployer only |
-| 17 | [`PHP-IMPLEMENTATION-PLAN.md`](PHP-IMPLEMENTATION-PLAN.md) | Architecture + binding design-rules contract. The source of truth for design tokens, copy strings, error taxonomy, and the WordPress port contract. | Architect / tech reviewer |
-| 18 | [`free-plugins-guide.md`](free-plugins-guide.md) | WordPress plugin reference: free-tier plugin set + rationale for each. | WordPress developer |
+| 15 | [`BUILD-GUIDE.md`](BUILD-GUIDE.md) | Original PHP-deploy step-by-step (hosting, DB, FTP, InfinityFree). Supplemental. | PHP reference deployer only |
+| 16 | [`PHP-IMPLEMENTATION-PLAN.md`](PHP-IMPLEMENTATION-PLAN.md) | Architecture + binding design-rules contract. The source of truth for design tokens, copy strings, error taxonomy, and the WordPress port contract. | Architect / tech reviewer |
+| 17 | [`free-plugins-guide.md`](free-plugins-guide.md) | WordPress plugin reference: free-tier plugin set + rationale for each. | WordPress developer |
 
 ## Importable artefacts (outside this directory)
 
@@ -35,7 +34,6 @@ Read in this order:
 | `../build-artifacts/wpcode/snippets.md` | 13 WPCode snippets — GTM head/body, GA4 fallback, sticky CTA, dataLayer pushes, JSON-LD schemas, performance tweaks. |
 | `../build-artifacts/elementor-custom-css.css` | Drop-in CSS for Elementor → Site Settings → Custom CSS. Brand tokens, focus ring, touch-targets, marquee pause, FAQ grid-rows animation, reduced-motion kill. |
 | `../build-artifacts/copy/zycus-landing-copy.md` | Approved copy source of truth for every landing-page section. |
-| `../build-artifacts/prototype/index.html` | Non-authoritative static HTML reference (historical). |
 | `../public/assets/img/zycus-logo.webp` | Brain logo asset (upload to WP Media Library; alt text must be exactly `"Zycus AI Procurement Brain Logo"`). |
 
 ## Key identifiers

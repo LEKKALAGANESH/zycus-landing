@@ -2,7 +2,7 @@
 
 ## 0. Purpose of this document
 
-This guide is the single source of truth for rebuilding the Zycus Agentic AI landing page inside WordPress + Elementor Pro + MetForm, per the evaluator's brief. All copy, field definitions, brand tokens, and analytics IDs below are authoritative. Where this guide and the reference PHP prototype at `build-artifacts/prototype/index.html` disagree, **this guide wins** — the PHP app in `php-app/` is a supplemental reference implementation only.
+This guide is the single source of truth for rebuilding the Zycus Agentic AI landing page inside WordPress + Elementor Pro + MetForm, per the evaluator's brief. All copy, field definitions, brand tokens, and analytics IDs below are authoritative. The PHP app in `php-app/` is a supplemental reference implementation only — where it and this guide disagree, **this guide wins**.
 
 Target stack: WordPress 6.5+, Elementor Pro 3.22+, MetForm Pro, WPCode Lite, Google Tag Manager, GA4. Target Lighthouse: 90+ performance, 100 accessibility on mobile.
 
@@ -401,7 +401,6 @@ All paths are relative to the repository root (this guide lives at `docs/ELEMENT
 - GTM container export: `build-artifacts/gtm/GTM-zycus-landing.json`
 - WPCode PHP/JS snippets: `build-artifacts/wpcode/snippets.md`
 - Copy source of truth: `build-artifacts/copy/zycus-landing-copy.md`
-- Reference HTML prototype (non-authoritative): `build-artifacts/prototype/index.html`
 - Brain logo asset (upload to WP Media Library): `php-app/public/assets/img/zycus-logo.webp`
 
 ---

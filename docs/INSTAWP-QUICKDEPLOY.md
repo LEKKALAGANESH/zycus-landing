@@ -27,7 +27,7 @@ Ten minutes. Best for a Loom walkthrough you send the evaluator.
 4. `Plugins → Add New → Elementor` → Install → Activate.
 5. `Plugins → Add New → MetForm` → Install → Activate.
 6. Build the form + hero per `docs/ELEMENTOR-BUILD-GUIDE.md` §4 + §8.
-7. Export via `Tools → Export` (WXR file). Record a Loom of the built page per `docs/VIDEO-SCRIPT.md` — that's what you share.
+7. Export via `Tools → Export` (WXR file). Record a Loom of the built page — that's what you share.
 
 **Limitation**: Playground's URL is browser-local — it won't work for someone else. For a shareable URL, go to Option 2.
 
@@ -85,7 +85,7 @@ For production, migrate to **Kinsta** ($35/mo), **SiteGround** ($3.99/mo promo),
 
 If none of the three work in your window:
 
-1. Record a 2-minute Loom per `docs/VIDEO-SCRIPT.md` of the PHP reference running locally via `php -S localhost:8000 -t public`.
+1. Record a 2-minute Loom of the PHP reference running locally via `php -S localhost:8000 -t public`.
 2. Export screenshots of each breakpoint into `docs/screenshots/`.
 3. Commit in the cover letter to deliver a live URL "within 24 hours of selection".
 

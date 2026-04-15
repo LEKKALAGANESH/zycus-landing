@@ -13,9 +13,9 @@ A production-ready, Core Web Vitals–compliant landing page for the Zycus produ
 
 - **Primary deliverable** — `docs/ELEMENTOR-BUILD-GUIDE.md`: 14-stage, copy-paste build guide covering hosting, theme, global design tokens, every section build, MetForm wiring, Yoast SEO, GTM/GA4 integration, QA, and go-live.
 - **Supplemental reference** — PHP from-scratch implementation of the same landing page under `php-app/` (same markup, same CSS tokens, same form behaviour) as a performance benchmark for the Elementor build to measure against.
-- **Repository** — https://github.com/LEKKALAGANESH/zycus-landing (history, issues, CI config, asset sources).
-- **Live demo** — `[live WP URL pending InstaWP spin-up — see docs/INSTAWP-QUICKDEPLOY.md]` (shared within 24 hours of your sign-off on Stage 1 of the guide).
-- **Importable artefacts** — MetForm form blueprint, GTM container export (`GTM-KG8889HK`), WPCode snippets, copy source of truth, Elementor global-colors palette.
+- **Repository** — https://github.com/LEKKALAGANESH/zycus-landing (history, CI config, asset sources).
+- **Live demo** — {{LIVE_URL}} (WordPress Playground / InfinityFree sandbox; see `docs/INSTAWP-QUICKDEPLOY.md`).
+- **Importable artefacts** — MetForm form blueprint, GTM container export (`GTM-KG8889HK`), WPCode snippets, copy source of truth, Elementor global-colors palette, Elementor hero + form template JSONs.
 
 ---
 
@@ -49,6 +49,24 @@ Three ways to move forward — pick the one that fits your procurement process:
 1. **Self-serve import.** We hand over the MetForm blueprint, GTM container, and Elementor kit. Your team imports into an existing WP install; we support over email for 7 days.
 2. **We deploy to your staging.** We spin up the Elementor build on your staging subdomain, wire GTM/GA4, and hand off a reviewed, QA'd site within 5 business days.
 3. **Benchmark against the PHP reference.** Use the supplemental PHP build (identical markup + tokens) as a lighthouse/LCP reference to validate the Elementor version's performance budget.
+
+---
+
+## Submission attachments
+
+Everything included with this submission, in the order I'd recommend reviewing:
+
+| # | Asset | Where to find it |
+|---|---|---|
+| 1 | **This cover letter** | `docs/CLIENT-SUBMISSION.md` (you are here) |
+| 2 | **GitHub repository** | https://github.com/LEKKALAGANESH/zycus-landing |
+| 3 | **Live WordPress demo** | {{LIVE_URL}} |
+| 4 | **2-minute video walkthrough** | {{LOOM_URL}} |
+| 5 | **Gemini research notes** (competitive analysis, audience research, copy rationale) | {{GEMINI_RESEARCH_LINK}} |
+| 6 | **Project ZIP** (offline copy of the repo snapshot at submission time) | {{PROJECT_ZIP_LINK}} |
+| 7 | **Elementor build guide** (primary deliverable) | [`docs/ELEMENTOR-BUILD-GUIDE.md`](./ELEMENTOR-BUILD-GUIDE.md) |
+| 8 | **Importable artefacts** (MetForm blueprint, GTM container, WPCode snippets, Elementor template kit, Custom CSS) | [`build-artifacts/`](../build-artifacts/) |
+| 9 | **Self-audit + evidence docs** (a11y, performance, security, UAT, SEO, analytics) | [`docs/`](./) |
 
 ---
 
