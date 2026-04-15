@@ -313,7 +313,8 @@ button {
   white-space: nowrap;
 }
 /* 44x44 minimum touch target for every anchor/button in main flow */
-.site-nav a,
+.site-nav-desktop a,
+.mobile-menu__panel a,
 .faq__q,
 .form-step-nav .btn-back,
 .form-step-nav .btn-next {

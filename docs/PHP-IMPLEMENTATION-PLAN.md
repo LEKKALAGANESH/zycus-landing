@@ -1107,7 +1107,7 @@ The form POST succeeded but the redirect target `/thank-you/` (trailing slash) o
 
 | Skeleton item | File / selector |
 | --- | --- |
-| Header (logo only, minimal nav) | `templates/header.php` — `.brand` + `.site-nav` |
+| Header (logo only, minimal nav) | `templates/header.php` — `.brand` + `.site-nav-desktop` (inline ≥ 768px) + `.menu-btn` (mobile hamburger) |
 | Hero (2-col, H1 + lead + CTA + trust list) | `templates/sections/hero.php` |
 | Trust ribbon / logo grid | `templates/sections/logos.php` |
 | How It Works (H2 + 4 H3 steps) | `templates/sections/how-it-works.php` |

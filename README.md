@@ -9,15 +9,16 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/LEKKALAGANESH/zycus-landing/actions/workflows/ci.yml"><img alt="CI"        src="https://github.com/LEKKALAGANESH/zycus-landing/actions/workflows/ci.yml/badge.svg?branch=main"></a>
   <a href="#"><img alt="WordPress" src="https://img.shields.io/badge/WordPress-6.5%2B-21759B?logo=wordpress&logoColor=white"></a>
   <a href="#"><img alt="Elementor" src="https://img.shields.io/badge/Elementor-Pro-92003B?logo=elementor&logoColor=white"></a>
   <a href="#"><img alt="MetForm"   src="https://img.shields.io/badge/MetForm-blueprint%20ready-40A4FB"></a>
   <a href="#"><img alt="GTM"       src="https://img.shields.io/badge/GTM-KG8889HK-246FDB?logo=googletagmanager&logoColor=white"></a>
   <a href="#"><img alt="GA4"       src="https://img.shields.io/badge/GA4-G--1MG1YKNRDF-E37400?logo=googleanalytics&logoColor=white"></a>
-  <a href="#"><img alt="WCAG"      src="https://img.shields.io/badge/WCAG-2.1%20AA-0F3D81"></a>
+  <a href="docs/ACCESSIBILITY-AUDIT.md"><img alt="WCAG"      src="https://img.shields.io/badge/WCAG-2.1%20AA-0F3D81"></a>
   <a href="docs/PERFORMANCE-EVIDENCE.md"><img alt="CWV"       src="https://img.shields.io/badge/Core%20Web%20Vitals-target-2ea44f"></a>
   <a href="#"><img alt="PHP"       src="https://img.shields.io/badge/PHP%20reference-8.2%2B-777BB4?logo=php&logoColor=white"></a>
-  <a href="#"><img alt="License"   src="https://img.shields.io/badge/license-Proprietary-lightgrey"></a>
+  <a href="LICENSE"><img alt="License"   src="https://img.shields.io/badge/license-Proprietary-lightgrey"></a>
 </p>
 
 <p align="center">
