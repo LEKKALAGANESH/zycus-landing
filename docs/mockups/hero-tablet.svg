@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="768" height="600" viewBox="0 0 768 600" role="img" aria-labelledby="t d">
-  <title id="t">Zycus hero wireframe - tablet 768x600</title>
-  <desc id="d">Low-fidelity SVG wireframe of the Zycus landing page hero at the tablet breakpoint.</desc>
-  <rect width="768" height="600" fill="#FAFBFD"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="860" viewBox="0 0 768 860" role="img" aria-labelledby="t d">
+  <title id="t">Zycus hero wireframe - tablet 768x860</title>
+  <desc id="d">Low-fidelity SVG wireframe of the Zycus landing page hero at the tablet breakpoint. Copy on top, brain-logo placeholder stacked below — matches the single-column layout the live site uses below the 1024px breakpoint.</desc>
+  <rect width="768" height="860" fill="#FAFBFD"/>
   <!-- Header -->
   <g>
     <rect x="20" y="20" width="44" height="44" rx="10" fill="#0F3D81"/>
@@ -15,7 +15,7 @@
     <text x="668" y="49" font-family="sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">Book My Demo</text>
   </g>
   <line x1="20" y1="88" x2="748" y2="88" stroke="#40A4FB" stroke-opacity="0.25" stroke-width="1"/>
-  <!-- Left column: hero content -->
+  <!-- Hero copy (full width, single column) -->
   <g>
     <text x="40" y="140" font-family="sans-serif" font-size="12" font-weight="700" fill="#40A4FB" letter-spacing="2">AGENTIC AI FOR SOURCE-TO-PAY</text>
     <text x="40" y="190" font-family="sans-serif" font-size="32" font-weight="700" fill="#0F3D81">Cut Procurement</text>
@@ -33,13 +33,13 @@
     <text x="40" y="510" font-family="sans-serif" font-size="12" font-weight="700" fill="#40A4FB">✓</text>
     <text x="58" y="510" font-family="sans-serif" font-size="12" fill="#4A5B7A">Gartner Magic Quadrant Leader, 2024</text>
   </g>
-  <!-- Right column: brain logo placeholder -->
+  <!-- Brain-logo placeholder stacked BELOW the copy, horizontally centered -->
   <g>
-    <rect x="480" y="120" width="248" height="300" rx="14" fill="#FFFFFF" stroke="#40A4FB" stroke-opacity="0.35" stroke-width="1"/>
-    <circle cx="604" cy="248" r="64" fill="none" stroke="#40A4FB" stroke-opacity="0.45" stroke-width="1.5"/>
-    <circle cx="604" cy="248" r="38" fill="none" stroke="#0F3D81" stroke-opacity="0.35" stroke-width="1"/>
-    <text x="604" y="360" font-family="sans-serif" font-size="13" fill="#4A5B7A" text-anchor="middle">Brain logo</text>
+    <rect x="260" y="560" width="248" height="240" rx="14" fill="#FFFFFF" stroke="#40A4FB" stroke-opacity="0.35" stroke-width="1"/>
+    <circle cx="384" cy="668" r="62" fill="none" stroke="#40A4FB" stroke-opacity="0.45" stroke-width="1.5"/>
+    <circle cx="384" cy="668" r="38" fill="none" stroke="#0F3D81" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="384" y="770" font-family="sans-serif" font-size="13" fill="#4A5B7A" text-anchor="middle">Brain logo</text>
   </g>
-  <line x1="20" y1="570" x2="748" y2="570" stroke="#40A4FB" stroke-opacity="0.2" stroke-width="1"/>
-  <text x="40" y="590" font-family="sans-serif" font-size="11" fill="#4A5B7A">Wireframe · tablet 768 × 600</text>
+  <line x1="20" y1="830" x2="748" y2="830" stroke="#40A4FB" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="40" y="850" font-family="sans-serif" font-size="11" fill="#4A5B7A">Wireframe · tablet 768 × 860 (stacked layout)</text>
 </svg>
