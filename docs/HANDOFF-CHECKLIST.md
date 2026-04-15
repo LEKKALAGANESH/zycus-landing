@@ -94,4 +94,4 @@ Everything the Zycus team needs to provide or approve after accepting the delive
 
 ---
 
-Stuck on any of these? Contact {{your_email}} — we keep a live FAQ at `CLIENT-FAQ.md`.
+Stuck on any of these? Contact lekkalaganesh14@gmail.com — we keep a live FAQ at `CLIENT-FAQ.md`.

@@ -79,4 +79,4 @@ All deferred until cookie consent is granted.
 
 ---
 
-Security questions? Contact {{your_email}}.
+Security questions? Contact lekkalaganesh14@gmail.com.

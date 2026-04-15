@@ -8,27 +8,27 @@ All numbers were captured with **Lighthouse 11.4.0** driven from **Chrome DevToo
 
 ## Measured metrics — PHP reference
 
-| Metric | Desktop | Mobile | Budget | Status |
-| --- | --- | --- | --- | --- |
-| LCP | 0.9s | 1.9s | < 2.5s | PASS |
-| FCP | 0.6s | 1.3s | < 1.8s | PASS |
-| CLS | 0.01 | 0.02 | < 0.1 | PASS |
-| TBT (Total Blocking Time) | 40ms | 180ms | < 300ms | PASS |
-| INP (approx, via CrUX field data) | 65ms | 140ms | < 200ms | PASS |
-| Speed Index | 1.2s | 2.4s | < 3.4s | PASS |
-| Total transfer size | 220 KB | 220 KB | < 500 KB | PASS |
-| Requests | 18 | 18 | < 30 | PASS |
-| Unused CSS | 8 KB | 8 KB | < 20 KB | PASS |
-| Unused JS | 2 KB | 2 KB | < 20 KB | PASS |
+| Metric                            | Desktop | Mobile | Budget   | Status |
+| --------------------------------- | ------- | ------ | -------- | ------ |
+| LCP                               | 0.9s    | 1.9s   | < 2.5s   | PASS   |
+| FCP                               | 0.6s    | 1.3s   | < 1.8s   | PASS   |
+| CLS                               | 0.01    | 0.02   | < 0.1    | PASS   |
+| TBT (Total Blocking Time)         | 40ms    | 180ms  | < 300ms  | PASS   |
+| INP (approx, via CrUX field data) | 65ms    | 140ms  | < 200ms  | PASS   |
+| Speed Index                       | 1.2s    | 2.4s   | < 3.4s   | PASS   |
+| Total transfer size               | 220 KB  | 220 KB | < 500 KB | PASS   |
+| Requests                          | 18      | 18     | < 30     | PASS   |
+| Unused CSS                        | 8 KB    | 8 KB   | < 20 KB  | PASS   |
+| Unused JS                         | 2 KB    | 2 KB   | < 20 KB  | PASS   |
 
 ## Lighthouse category scores
 
-| Category | Desktop | Mobile | Threshold |
-| --- | --- | --- | --- |
-| Performance | 98 | 91 | >= 85 mobile / >= 95 desktop |
-| Accessibility | 100 | 100 | >= 95 |
-| Best Practices | 100 | 100 | >= 95 |
-| SEO | 100 | 100 | = 100 |
+| Category       | Desktop | Mobile | Threshold                    |
+| -------------- | ------- | ------ | ---------------------------- |
+| Performance    | 98      | 91     | >= 85 mobile / >= 95 desktop |
+| Accessibility  | 100     | 100    | >= 95                        |
+| Best Practices | 100     | 100    | >= 95                        |
+| SEO            | 100     | 100    | = 100                        |
 
 ## Why these numbers
 
@@ -41,12 +41,12 @@ All numbers were captured with **Lighthouse 11.4.0** driven from **Chrome DevToo
 
 ## Breakdown per page
 
-| Page | LCP (mobile) | CLS | Performance (mobile) |
-| --- | --- | --- | --- |
-| `/` (Home) | 1.9s | 0.02 | 91 |
-| `/thank-you/` | 1.1s | 0.00 | 98 |
-| `/privacy/` | 0.9s | 0.00 | 99 |
-| `/terms/` | 0.9s | 0.00 | 99 |
+| Page          | LCP (mobile) | CLS  | Performance (mobile) |
+| ------------- | ------------ | ---- | -------------------- |
+| `/` (Home)    | 1.9s         | 0.02 | 91                   |
+| `/thank-you/` | 1.1s         | 0.00 | 98                   |
+| `/privacy/`   | 0.9s         | 0.00 | 99                   |
+| `/terms/`     | 0.9s         | 0.00 | 99                   |
 
 The home page is the heaviest: it carries the client-logo marquee, the multi-step form, and the combobox. The three secondary pages are essentially text and chrome, which is why they sit comfortably above 98.
 
@@ -69,4 +69,4 @@ The numbers in the tables above are our **public performance budget**. Any PR th
 
 ---
 
-Measured on PHP reference; Elementor parity target set at 85 mobile / 95 desktop. Questions: {{your_email}}.
+Measured on PHP reference; Elementor parity target set at 85 mobile / 95 desktop. Questions: lekkalaganesh14@gmail.com.

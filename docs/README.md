@@ -46,6 +46,6 @@ Read in this order:
 
 ## Ready to submit?
 
-1. Replace every `{{your_name}}`, `{{your_email}}`, `{{your_phone}}`, `{{your_linkedin}}` placeholder in `CLIENT-SUBMISSION.md` and `CLIENT-FAQ.md`.
-2. Spin up the InstaWP sandbox per `INSTAWP-QUICKDEPLOY.md` and paste the resulting URL into `CLIENT-SUBMISSION.md` → "Live demo".
+1. Fill the four URL placeholders in `CLIENT-SUBMISSION.md` → **Submission attachments** table: `{{LIVE_URL}}`, `{{LOOM_URL}}`, `{{GEMINI_RESEARCH_LINK}}`, `{{PROJECT_ZIP_LINK}}`.
+2. Stand up the live demo per `INSTAWP-QUICKDEPLOY.md` (WordPress Playground / InfinityFree) and use that URL for `{{LIVE_URL}}`.
 3. Send `CLIENT-SUBMISSION.md` as the email body and link to this folder in the repo as the full artefact bundle.

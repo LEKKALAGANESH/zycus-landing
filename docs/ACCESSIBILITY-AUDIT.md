@@ -85,4 +85,4 @@ A full re-audit is triggered by any of the following events: (a) any change to t
 
 ## Attestation
 
-This audit attests that the Zycus landing page deliverable conforms to WCAG 2.1 Level AA as of the date of this report. Questions: {{your_email}}.
+This audit attests that the Zycus landing page deliverable conforms to WCAG 2.1 Level AA as of the date of this report. Questions: lekkalaganesh14@gmail.com.

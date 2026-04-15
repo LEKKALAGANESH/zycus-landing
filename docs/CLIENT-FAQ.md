@@ -60,4 +60,4 @@ Re-skin time is under two hours. All brand tokens are declared once as CSS custo
 
 ---
 
-If a question isn't covered here, we'll add it to this file as we hear it. Contact: {{your_email}}.
+If a question isn't covered here, we'll add it to this file as we hear it. Contact: lekkalaganesh14@gmail.com.
