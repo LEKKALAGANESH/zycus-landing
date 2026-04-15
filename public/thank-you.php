@@ -5,6 +5,7 @@ require __DIR__ . '/../src/bootstrap.php';
 $title = 'Thank You — Your Zycus Demo is Confirmed | Zycus';
 $desc  = 'Your Zycus Merlin AI demo request is confirmed. A procurement specialist will email you within 24 hours with calendar options.';
 $tier  = (string) ($_GET['tier'] ?? '');
+$robots = 'noindex,follow';  // conversion page — keep it out of the search index
 
 $lead       = $_SESSION['zycus_lead'] ?? [];
 $firstName  = (string) ($lead['first_name'] ?? '');

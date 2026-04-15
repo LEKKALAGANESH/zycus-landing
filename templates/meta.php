@@ -56,7 +56,7 @@ $faqLd = [
 <meta name="twitter:description" content="<?= htmlspecialchars($desc, ENT_QUOTES) ?>">
 <meta name="twitter:image" content="<?= rtrim($appUrl, '/') ?>/assets/img/zycus-logo.webp">
 <meta name="twitter:image:alt" content="Zycus AI Procurement Brain Logo">
-<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="robots" content="<?= htmlspecialchars($robots ?? 'index,follow,max-image-preview:large', ENT_QUOTES) ?>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="/assets/img/zycus-logo.webp" type="image/webp">

@@ -2,4 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /thank-you
-Sitemap: https://zycus.example.com/sitemap.xml
+Disallow: /thank-you.php
+
+# Sitemap location — replace the host with your production domain post-launch
+Sitemap: https://zycus-demo.infinityfreeapp.com/sitemap.xml
