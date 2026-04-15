@@ -1,0 +1,93 @@
+# ============================================================
+# Zycus Landing Page — Apache configuration
+# ============================================================
+
+# Disable directory listings
+Options -Indexes
+
+# Default charset
+AddDefaultCharset UTF-8
+
+# ------------------------------------------------------------
+# Rewrite rules
+# ------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Force HTTPS (skip when already on HTTPS)
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # Pretty URL: /thank-you/ (with optional trailing slash) -> thank-you.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^thank-you/?$ thank-you.php [L,QSA]
+
+    # Pretty URL for privacy/terms stubs
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^privacy/?$ privacy.php [L,QSA]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^terms/?$ terms.php [L,QSA]
+</IfModule>
+
+# ------------------------------------------------------------
+# Gzip / Deflate compression
+# ------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ------------------------------------------------------------
+# Cache headers (far-future for static assets, no-cache for HTML)
+# ------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # HTML — never cache (always revalidate)
+    ExpiresByType text/html                 "access plus 0 seconds"
+
+    # Static assets — 1 year
+    ExpiresByType text/css                  "access plus 1 year"
+    ExpiresByType application/javascript    "access plus 1 year"
+    ExpiresByType image/webp                "access plus 1 year"
+    ExpiresByType image/jpeg                "access plus 1 year"
+    ExpiresByType image/svg+xml             "access plus 1 year"
+    ExpiresByType font/woff2                "access plus 1 year"
+</IfModule>
+
+# ------------------------------------------------------------
+# Security headers
+# ------------------------------------------------------------
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# ------------------------------------------------------------
+# Block direct access to sensitive file extensions
+# ------------------------------------------------------------
+<FilesMatch "\.(env|json|log|sql|md|lock)$">
+    Require all denied
+</FilesMatch>
+
+# Belt-and-suspenders: block composer files if ever uploaded to public/
+<Files "composer.*">
+    Require all denied
+</Files>
+
+# ------------------------------------------------------------
+# Block direct web access to non-public directories when the whole
+# php-app is uploaded under htdocs/ (InfinityFree-style shared hosting).
+# src/, templates/, config/, storage/, vendor/ must never be reachable.
+# ------------------------------------------------------------
+RedirectMatch 404 ^/(src|templates|config|storage|vendor)(/|$)

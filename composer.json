@@ -1,0 +1,22 @@
+{
+    "name": "zycus/landing",
+    "description": "Zycus enterprise landing page — vanilla PHP 8.2 with PHPMailer and dotenv.",
+    "type": "project",
+    "require": {
+        "php": ">=8.2",
+        "phpmailer/phpmailer": "^6.9",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zycus\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "scripts": {
+        "post-autoload-dump": []
+    }
+}

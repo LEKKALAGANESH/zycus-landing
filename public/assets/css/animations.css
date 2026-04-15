@@ -1,0 +1,308 @@
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-micro: 200ms;
+  --dur-sm: 350ms;
+  --dur-md: 500ms;
+  --dur-lg: 800ms;
+  --slide-sm: 8px;
+  --slide-md: 16px;
+  --slide-lg: 24px;
+}
+
+/* Reveal-on-scroll */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--slide-md));
+  transition: opacity var(--dur-md) var(--ease-out-expo),
+              transform var(--dur-md) var(--ease-out-expo);
+  transition-delay: var(--d, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal="fade"] { transform: none; }
+[data-reveal="up"] { transform: translateY(var(--slide-md)); }
+[data-reveal="up-lg"] { transform: translateY(var(--slide-lg)); }
+[data-reveal="right"] { transform: translateX(calc(var(--slide-md) * -1)); }
+[data-reveal="scale"] { transform: scale(0.96); }
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero dashboard chart bars */
+@keyframes barGrow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+.dashboard-mock__chart .bar {
+  transform-origin: bottom;
+  animation: barGrow var(--dur-lg) var(--ease-out-expo) both;
+  animation-delay: calc(600ms + var(--i, 0) * 80ms);
+}
+
+/* Step card hover */
+.step-card {
+  transition: transform var(--dur-sm) var(--ease-out-expo),
+              box-shadow var(--dur-sm) var(--ease-out-expo),
+              border-color var(--dur-sm) var(--ease-out-expo);
+}
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -12px rgba(15, 61, 129, 0.20);
+  border-color: var(--dodger-blue, #40A4FB);
+}
+.step-card__num {
+  transition: transform var(--dur-sm) var(--ease-out-expo),
+              background var(--dur-sm) var(--ease-out-expo);
+}
+.step-card:hover .step-card__num {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, var(--dodger-blue, #40A4FB), var(--torea-bay, #0F3D81));
+}
+
+/* =========================================================
+   Logo Marquee — distinctive dual-row, counter-scrolling,
+   smooth decel on hover, brand-tinted focus glow per logo.
+   ========================================================= */
+.logos__viewport {
+  position: relative;
+  overflow: hidden;
+  padding: 8px 0;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+}
+.logos__track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  will-change: transform;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 42s;
+}
+.logos__track--reverse {
+  animation-name: marqueeReverse;
+  animation-duration: 56s;
+}
+
+/* Per-row speed overrides for extra rhythm */
+.logos__track--fast  { animation-duration: 32s; }
+.logos__track--slow  { animation-duration: 62s; }
+
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+@keyframes marqueeReverse {
+  from { transform: translate3d(-50%, 0, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+
+/* Hard-freeze BOTH rows at the exact cursor position when the user hovers
+   anywhere inside the .logos section. animation-play-state: paused preserves
+   the current translate3d value — no drift, no reset. Scope to `.logos` so
+   both viewports pause together (hovering row 1 must freeze row 2 as well).
+   Also supports keyboard focus for a11y parity. */
+.logos:hover .logos__track,
+.logos:focus-within .logos__track {
+  animation-play-state: paused;
+}
+
+/* Logos render in full color by default. Hover adds a brand-tinted bezel,
+   gentle lift, and layered shadow — no grayscale filter anywhere. */
+.logos__track .logo-box {
+  position: relative;
+  isolation: isolate;
+  transition:
+    transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.logos__track .logo-box::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--dodger-blue, #40A4FB), var(--torea-bay, #0F3D81));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+.logos__track .logo-box:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 14px 32px -12px rgba(15, 61, 129, 0.28),
+    0 6px 12px -6px rgba(64, 164, 251, 0.22);
+  border-color: transparent;
+}
+.logos__track .logo-box:hover::before { opacity: 1; }
+.logos__track .logo-box img {
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.logos__track .logo-box:hover img {
+  transform: scale(1.03);
+}
+
+/* Entrance: logos cascade in from the right when section scrolls into view */
+.logos.is-visible .logos__track .logo-box,
+.logos .logos__track .logo-box {
+  animation: logoIntro 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-play-state: paused;
+}
+.logos.is-visible .logos__track .logo-box { animation-play-state: running; }
+.logos__track .logo-box:nth-child(1)  { animation-delay: 20ms; }
+.logos__track .logo-box:nth-child(2)  { animation-delay: 60ms; }
+.logos__track .logo-box:nth-child(3)  { animation-delay: 100ms; }
+.logos__track .logo-box:nth-child(4)  { animation-delay: 140ms; }
+.logos__track .logo-box:nth-child(5)  { animation-delay: 180ms; }
+.logos__track .logo-box:nth-child(6)  { animation-delay: 220ms; }
+.logos__track .logo-box:nth-child(7)  { animation-delay: 260ms; }
+.logos__track .logo-box:nth-child(8)  { animation-delay: 300ms; }
+@keyframes logoIntro {
+  from { opacity: 0; transform: translateX(32px) scale(0.96); }
+  to   { opacity: 1;  transform: translateX(0) scale(1); }
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Testimonial hover */
+.testimonial {
+  transition: transform var(--dur-md) var(--ease-out-expo),
+              box-shadow var(--dur-md) var(--ease-out-expo);
+}
+.testimonial:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -16px rgba(15, 61, 129, 0.18);
+}
+.testimonial__quote-mark {
+  transition: transform var(--dur-md) var(--ease-out-expo);
+  transform-origin: top left;
+}
+.testimonial:hover .testimonial__quote-mark {
+  transform: scale(1.15) translate(-4px, -4px);
+}
+
+/* FAQ summary cleanup — icon styling now lives in styles.css to keep a single
+   source of truth for the +/× toggle (rotates 45deg on open). */
+.faq__item summary {
+  list-style: none;
+  cursor: pointer;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+
+/* Form focus + step indicator */
+.demo-form input,
+.demo-form select,
+.demo-form textarea {
+  transition: border-color var(--dur-sm) var(--ease-out-expo),
+              box-shadow var(--dur-sm) var(--ease-out-expo),
+              transform var(--dur-sm) var(--ease-out-expo);
+}
+.demo-form input:focus-visible,
+.demo-form select:focus-visible,
+.demo-form textarea:focus-visible {
+  outline: none;
+  border-color: var(--torch-red, #FF1446);
+  box-shadow: 0 0 0 3px rgba(255, 20, 70, 0.22);
+}
+.demo-form .is-invalid {
+  border-color: var(--torch-red, #FF1446) !important;
+  background: #FFF5F6 !important;
+  box-shadow: 0 0 0 3px rgba(255, 20, 70, 0.18) !important;
+}
+.form-error {
+  color: var(--torch-red, #FF1446);
+  font-size: 13px;
+  font-weight: 600;
+  display: block;
+  margin-top: 6px;
+}
+/* .form-step__label transition + focus-within rule live in styles.css
+   alongside its structural declarations — single source of truth. */
+
+/* Submit button — static, no shimmer (brand requirement: static form styles) */
+
+/* Sticky mobile CTA */
+.mobile-cta {
+  transform: translateY(calc(100% + 16px));
+  opacity: 0;
+  transition: transform var(--dur-md) var(--ease-out-expo),
+              opacity var(--dur-md) var(--ease-out-expo);
+  pointer-events: none;
+}
+.mobile-cta.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Sticky header scroll-state glass */
+.site-header {
+  transition: background var(--dur-sm) var(--ease-out-expo),
+              backdrop-filter var(--dur-sm) var(--ease-out-expo),
+              box-shadow var(--dur-sm) var(--ease-out-expo);
+}
+.site-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  box-shadow: 0 1px 0 rgba(15, 61, 129, 0.08);
+}
+
+/* Form nav */
+.form-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: flex-end;
+}
+.form-nav .btn--ghost {
+  background: transparent;
+  color: var(--torea-bay, #0F3D81);
+}
+.form-nav .btn--secondary {
+  background: var(--dodger-blue, #40A4FB);
+  color: white;
+}
+
+/* Reduced motion override */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  [data-marquee] .logos__track { animation: none !important; }
+}
