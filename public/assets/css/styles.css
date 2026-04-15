@@ -397,8 +397,10 @@ button {
   gap: 16px;
 }
 
-/* ============== Mobile hamburger + drawer nav ============== */
-.nav-toggle {
+/* ============== Mobile hamburger button ==============
+   Sits inline in the header on mobile. 48x48 Torea Bay filled, white
+   bars, flips to Torch Red when the menu is open. Hidden on desktop. */
+.menu-btn {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -409,27 +411,27 @@ button {
   padding: 0;
   margin-left: auto;
   background: var(--torea-bay);
-  border: 2px solid var(--torea-bay);
+  border: 0;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 4px 10px -4px rgba(15, 61, 129, 0.35);
-  transition: background 200ms ease, border-color 200ms ease, transform 150ms ease;
+  transition: background 200ms ease, transform 150ms ease;
 }
-.nav-toggle:hover { background: var(--torch-red); border-color: var(--torch-red); }
-.nav-toggle:active { transform: scale(0.96); }
-.nav-toggle:focus-visible { outline: var(--focus-ring); outline-offset: 3px; }
-.nav-toggle__bar {
+.menu-btn:hover { background: var(--torch-red); }
+.menu-btn:active { transform: scale(0.95); }
+.menu-btn:focus-visible { outline: var(--focus-ring); outline-offset: 3px; }
+.menu-btn span {
   display: block;
   width: 22px;
   height: 3px;
   background: #FFFFFF;
   border-radius: 2px;
-  transition: transform 250ms cubic-bezier(0.32, 0.72, 0, 1), opacity 250ms ease;
+  transition: transform 250ms cubic-bezier(0.32, 0.72, 0, 1), opacity 200ms ease;
 }
-.nav-toggle[aria-expanded="true"] { background: var(--torch-red); border-color: var(--torch-red); }
-.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.menu-btn[aria-expanded="true"] { background: var(--torch-red); }
+.menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 .brand {
   display: inline-flex;
@@ -454,76 +456,117 @@ button {
   }
 }
 
-/* Mobile: full-screen drawer triggered by .nav-toggle */
-.site-nav {
+/* ============== Desktop inline nav ==============
+   Visible only on >= 768px. Sits between brand and header CTA. */
+.site-nav-desktop { display: none; }
+.site-header__cta { display: none; }
+
+@media (min-width: 768px) {
+  .menu-btn { display: none; }
+  .site-nav-desktop {
+    display: inline-flex;
+    gap: 32px;
+    margin-left: auto;
+  }
+  .site-nav-desktop a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .site-nav-desktop a:hover { color: var(--torch-red); }
+  .site-header__cta { display: inline-flex; margin-left: 0; }
+}
+
+/* ============== Mobile menu overlay ==============
+   Body-level stacking context. Hidden by default via `aria-hidden="true"`
+   + `visibility: hidden`. JS toggles `.is-open` on the wrapper. */
+.mobile-menu {
   position: fixed;
+  inset: 0;
+  z-index: 200;                 /* above sticky header (50) + everything else */
+  visibility: hidden;
+  pointer-events: none;
+}
+.mobile-menu.is-open {
+  visibility: visible;
+  pointer-events: auto;
+}
+.mobile-menu__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 61, 129, 0.6);
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+.mobile-menu.is-open .mobile-menu__backdrop { opacity: 1; }
+
+.mobile-menu__panel {
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  width: min(320px, 86vw);
-  padding: 96px 28px 28px;
-  background: #FFFFFF !important;
-  border-left: 1px solid var(--border);
-  box-shadow: -24px 0 48px -16px rgba(15, 61, 129, 0.35);
+  width: min(340px, 86vw);
+  padding: 88px 28px 28px;
+  background: #FFFFFF;
+  box-shadow: -24px 0 48px -12px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
   transform: translateX(100%);
-  transition: transform 280ms cubic-bezier(0.32, 0.72, 0, 1);
-  z-index: 90;
-  visibility: hidden;
+  transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1);
 }
-.site-nav.is-open { transform: translateX(0); visibility: visible; }
-.site-nav a {
+.mobile-menu.is-open .mobile-menu__panel { transform: translateX(0); }
+
+.mobile-menu__panel a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
   padding: 0 4px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--torea-bay);
   text-decoration: none;
+  border-bottom: 1px solid var(--border);
 }
-.site-nav a:hover { color: var(--torch-red); }
-.site-nav__cta { align-self: flex-start; margin-top: 8px; }
-.site-header__cta { display: none; }
+.mobile-menu__panel a:last-of-type { border-bottom: 0; }
+.mobile-menu__panel a:hover { color: var(--torch-red); }
 
-/* Scrim behind the drawer — fully solid Torea Bay so nothing from the
-   hero underneath is visible when the drawer is open (user request:
-   "background transparent will be remove"). */
-.nav-scrim {
-  position: fixed;
-  inset: 0;
-  background: #0F3D81;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 280ms ease;
-  z-index: 85;
+.mobile-menu__cta {
+  align-self: stretch !important;
+  justify-content: center;
+  margin-top: 12px;
+  min-height: 48px !important;
+  border-bottom: 0 !important;
 }
-.nav-scrim.is-visible { opacity: 1; pointer-events: auto; }
-body.nav-open { overflow: hidden; }
 
-/* Desktop: drawer reverts to inline flex bar, hamburger hides */
+.mobile-menu__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: var(--surface-alt, var(--bg-light));
+  color: var(--torea-bay);
+  border: 0;
+  border-radius: 50%;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+}
+.mobile-menu__close:hover { background: var(--torch-red); color: #fff; }
+.mobile-menu__close:focus-visible { outline: var(--focus-ring); outline-offset: 3px; }
+
+/* Body scroll lock while the menu is open */
+body.menu-open { overflow: hidden; }
+
 @media (min-width: 768px) {
-  .nav-toggle { display: none; }
-  .site-nav {
-    position: static;
-    width: auto;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    flex-direction: row;
-    gap: 32px;
-    transform: none;
-    transition: none;
-    visibility: visible;
-    z-index: auto;
-  }
-  .site-nav a { font-size: 15px; font-weight: 500; color: var(--text); min-height: auto; }
-  .site-nav__cta { display: none !important; }
-  .site-header__cta { display: inline-flex; }
-  .nav-scrim { display: none; }
+  .mobile-menu { display: none; }
 }
 
 /* =========================================================

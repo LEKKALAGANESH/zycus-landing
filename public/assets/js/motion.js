@@ -155,57 +155,66 @@
   }
 
   // =========================================================
-  // Mobile hamburger — drawer open/close with scrim + escape
+  // Mobile menu — clean rebuild
+  // Markup: <button class="menu-btn">, <div id="mobile-menu">
+  //         containing .mobile-menu__backdrop + .mobile-menu__panel.
+  // Open = add .is-open on the wrapper + .menu-open on body.
+  // Close = click backdrop, click close button, click any link,
+  //         press Escape, or viewport crosses into desktop.
   // =========================================================
-  const navToggle = document.querySelector('.nav-toggle');
-  const siteNav   = document.getElementById('site-nav');
-  if (navToggle && siteNav) {
-    const scrim = document.createElement('div');
-    scrim.className = 'nav-scrim';
-    document.body.appendChild(scrim);
+  const menuBtn  = document.querySelector('.menu-btn');
+  const menuWrap = document.getElementById('mobile-menu');
+  const mainEl   = document.getElementById('main-content');
 
-    const mainEl = document.getElementById('main-content');
+  if (menuBtn && menuWrap) {
+    const panel = menuWrap.querySelector('.mobile-menu__panel');
+
     const open = () => {
-      siteNav.classList.add('is-open');
-      scrim.classList.add('is-visible');
-      document.body.classList.add('nav-open');
-      navToggle.setAttribute('aria-expanded', 'true');
-      navToggle.setAttribute('aria-label', 'Close navigation menu');
+      menuWrap.classList.add('is-open');
+      menuWrap.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      menuBtn.setAttribute('aria-label', 'Close navigation menu');
       if (mainEl) {
         mainEl.setAttribute('aria-hidden', 'true');
         mainEl.setAttribute('inert', '');
       }
-      const firstLink = siteNav.querySelector('a');
+      const firstLink = panel && panel.querySelector('a');
       if (firstLink) firstLink.focus({ preventScroll: true });
     };
+
     const close = () => {
-      siteNav.classList.remove('is-open');
-      scrim.classList.remove('is-visible');
-      document.body.classList.remove('nav-open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.setAttribute('aria-label', 'Open navigation menu');
+      menuWrap.classList.remove('is-open');
+      menuWrap.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Open navigation menu');
       if (mainEl) {
         mainEl.removeAttribute('aria-hidden');
         mainEl.removeAttribute('inert');
       }
-      navToggle.focus({ preventScroll: true });
+      menuBtn.focus({ preventScroll: true });
     };
 
-    navToggle.addEventListener('click', () => {
-      const isOpen = siteNav.classList.contains('is-open');
-      isOpen ? close() : open();
+    menuBtn.addEventListener('click', () => {
+      if (menuWrap.classList.contains('is-open')) close(); else open();
     });
-    scrim.addEventListener('click', close);
+
+    menuWrap.querySelectorAll('[data-menu-close]').forEach((el) => {
+      el.addEventListener('click', close);
+    });
+
+    menuWrap.querySelectorAll('.mobile-menu__panel a').forEach((link) => {
+      link.addEventListener('click', close);
+    });
+
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && siteNav.classList.contains('is-open')) close();
+      if (e.key === 'Escape' && menuWrap.classList.contains('is-open')) close();
     });
-    siteNav.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        if (siteNav.classList.contains('is-open')) close();
-      });
-    });
-    // Auto-close when viewport crosses desktop breakpoint
+
     const mq = window.matchMedia('(min-width: 768px)');
-    mq.addEventListener('change', (e) => { if (e.matches && siteNav.classList.contains('is-open')) close(); });
+    mq.addEventListener('change', (e) => {
+      if (e.matches && menuWrap.classList.contains('is-open')) close();
+    });
   }
 })();

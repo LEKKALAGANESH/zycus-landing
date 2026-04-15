@@ -24,22 +24,34 @@
            decoding="async"
            fetchpriority="high">
     </a>
-    <button type="button"
-            class="nav-toggle"
-            aria-expanded="false"
-            aria-controls="site-nav"
-            aria-label="Open navigation menu">
-      <span class="nav-toggle__bar" aria-hidden="true"></span>
-      <span class="nav-toggle__bar" aria-hidden="true"></span>
-      <span class="nav-toggle__bar" aria-hidden="true"></span>
-    </button>
-    <nav id="site-nav" class="site-nav" aria-label="Primary">
+    <nav class="site-nav-desktop" aria-label="Primary">
       <a href="#how-it-works">How it works</a>
       <a href="#testimonials">Customers</a>
       <a href="#faq">FAQ</a>
-      <a href="#demo-form" class="btn btn--primary btn--sm site-nav__cta">Book My Demo</a>
     </nav>
     <a href="#demo-form" class="btn btn--primary btn--sm site-header__cta">Book My Demo</a>
+    <button type="button"
+            class="menu-btn"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Open navigation menu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
   </div>
 </header>
+
+<!-- Mobile menu — rendered as a body-level element so it escapes the
+     site-header's z-index stacking context. -->
+<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu__backdrop" data-menu-close></div>
+  <nav class="mobile-menu__panel" aria-label="Mobile primary">
+    <button type="button" class="mobile-menu__close" data-menu-close aria-label="Close navigation menu">&times;</button>
+    <a href="#how-it-works">How it works</a>
+    <a href="#testimonials">Customers</a>
+    <a href="#faq">FAQ</a>
+    <a href="#demo-form" class="btn btn--primary mobile-menu__cta">Book My Demo</a>
+  </nav>
+</div>
 <main id="main-content" role="main">
