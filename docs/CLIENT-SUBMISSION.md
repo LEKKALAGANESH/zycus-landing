@@ -20,7 +20,6 @@ A production-ready, Core Web Vitals–compliant landing page for the Zycus produ
 - **Importable artefacts** — MetForm form blueprint, GTM container export (`GTM-KG8889HK`), WPCode snippets, copy source of truth, Elementor global-colors palette, Elementor hero + form template JSONs.
 
 ---
-
 ## How it maps to your brief
 
 | Brief requirement                 | Where it's addressed                                                                  |

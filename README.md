@@ -106,7 +106,6 @@ The visual language is **refined and corporate**: Torea Bay `#0F3D81` for depth 
 │   └── schema.sql                # MySQL schema for `submissions` + `rate_limits`
 ├── docs/
 │   ├── BUILD-GUIDE.md            # Step-by-step setup, GA4/GTM, InfinityFree deploy
-│   ├── PHP-IMPLEMENTATION-PLAN.md  # Architecture + binding design-rules contract
 │   └── free-plugins-guide.md     # Free-tier plugin set for the WordPress/Elementor build
 ├── public/                       # Web root — point Apache / Nginx here
 │   ├── .htaccess
@@ -236,7 +235,7 @@ Pre-flight checklist:
   | 503    | `{ok: false, errorType: 'database', errorHeadline, …}`  | Apology modal titled "Connection Interrupted" |
   | 500    | `{ok: false, error}`                                    | Apology modal (generic)                       |
 
-- **Design-rules contract.** [`docs/PHP-IMPLEMENTATION-PLAN.md`](./docs/PHP-IMPLEMENTATION-PLAN.md) defines the binding specification — palette usage, gradient scope, WCAG targets, Core Web Vitals targets, Enterprise B2B form pattern, exact success / apology copy strings — which also governs the WordPress/Elementor port.
+- **Design-rules contract.** [`docs/BRAND-STYLE-GUIDE.md`](./docs/BRAND-STYLE-GUIDE.md) defines the binding palette / typography / motion / form-control / accessibility spec; [`docs/SECURITY-AND-COMPLIANCE.md`](./docs/SECURITY-AND-COMPLIANCE.md) documents the form-security controls matrix and GDPR/CCPA posture.
 
 ---
 

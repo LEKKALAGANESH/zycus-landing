@@ -21,7 +21,6 @@ Read in this order:
 | 13 | [`UAT-TEST-PLAN.md`](UAT-TEST-PLAN.md) | 31 test cases across 6 suites (content, form, tracking, responsive, a11y, performance) with entry + exit criteria + sign-off block. | Client QA team |
 | 14 | [`PERFORMANCE-EVIDENCE.md`](PERFORMANCE-EVIDENCE.md) | Self-reported Lighthouse numbers + budget contract + per-page breakdown + Elementor parity note. | Performance reviewer |
 | 15 | [`BUILD-GUIDE.md`](BUILD-GUIDE.md) | Original PHP-deploy step-by-step (hosting, DB, FTP, InfinityFree). Supplemental. | PHP reference deployer only |
-| 16 | [`PHP-IMPLEMENTATION-PLAN.md`](PHP-IMPLEMENTATION-PLAN.md) | Architecture + binding design-rules contract. The source of truth for design tokens, copy strings, error taxonomy, and the WordPress port contract. | Architect / tech reviewer |
 | 17 | [`free-plugins-guide.md`](free-plugins-guide.md) | WordPress plugin reference: free-tier plugin set + rationale for each. | WordPress developer |
 
 ## Importable artefacts (outside this directory)
