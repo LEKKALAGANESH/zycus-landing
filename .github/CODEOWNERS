@@ -1,0 +1,8 @@
+# CODEOWNERS defines who is automatically requested for review on PRs.
+# The last matching pattern wins; more specific paths override the catch-all.
+
+* @LEKKALAGANESH
+
+docs/ELEMENTOR-BUILD-GUIDE.md @LEKKALAGANESH
+docs/SECURITY-AND-COMPLIANCE.md @LEKKALAGANESH
+src/ @LEKKALAGANESH

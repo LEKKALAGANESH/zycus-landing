@@ -23,6 +23,11 @@
   --border: #d6deeb;
   --muted: #4a5b7a;
 
+  /* Brand-guide token aliases — referenced by docs/BRAND-STYLE-GUIDE.md */
+  --surface-base: #fafbfd;
+  --surface-alt: #f4f7fb;
+  --ink-subtle: #4a5b7a;
+
   --focus-ring: 3px solid #ff1446;
   --focus-offset: 3px;
 
@@ -85,7 +90,9 @@ a:focus-visible {
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
+body { overflow-x: hidden; }
 
 body {
   margin: 0;
@@ -376,10 +383,42 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding-top: 16px;
   padding-bottom: 16px;
-  gap: 24px;
+  gap: 16px;
 }
+
+/* ============== Mobile hamburger + drawer nav ============== */
+.nav-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+.nav-toggle:hover { background: var(--surface-alt, var(--bg-light)); border-color: var(--dodger-blue); }
+.nav-toggle:focus-visible { outline: var(--focus-ring); outline-offset: 3px; }
+.nav-toggle__bar {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background: var(--torea-bay);
+  border-radius: 2px;
+  transition: transform 250ms cubic-bezier(0.32, 0.72, 0, 1), opacity 250ms ease;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
 .brand {
   display: inline-flex;
@@ -404,27 +443,74 @@ button {
   }
 }
 
+/* Mobile: full-screen drawer triggered by .nav-toggle */
 .site-nav {
-  display: none;
-  gap: 32px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 82vw);
+  padding: 96px 28px 28px;
+  background: var(--white);
+  border-left: 1px solid var(--border);
+  box-shadow: -20px 0 40px -20px rgba(15, 61, 129, 0.22);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateX(100%);
+  transition: transform 280ms cubic-bezier(0.32, 0.72, 0, 1);
+  z-index: 90;
+  visibility: hidden;
 }
+.site-nav.is-open { transform: translateX(0); visibility: visible; }
 .site-nav a {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 4px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--torea-bay);
+  text-decoration: none;
 }
+.site-nav a:hover { color: var(--torch-red); }
+.site-nav__cta { align-self: flex-start; margin-top: 8px; }
+.site-header__cta { display: none; }
 
-.site-header__cta {
-  display: none;
+/* Scrim behind the drawer */
+.nav-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 61, 129, 0.42);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms ease;
+  z-index: 85;
 }
+.nav-scrim.is-visible { opacity: 1; pointer-events: auto; }
+body.nav-open { overflow: hidden; }
 
+/* Desktop: drawer reverts to inline flex bar, hamburger hides */
 @media (min-width: 768px) {
+  .nav-toggle { display: none; }
   .site-nav {
-    display: inline-flex;
+    position: static;
+    width: auto;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    flex-direction: row;
+    gap: 32px;
+    transform: none;
+    transition: none;
+    visibility: visible;
+    z-index: auto;
   }
-  .site-header__cta {
-    display: inline-flex;
-  }
+  .site-nav a { font-size: 15px; font-weight: 500; color: var(--text); min-height: auto; }
+  .site-nav__cta { display: none; }
+  .site-header__cta { display: inline-flex; }
+  .nav-scrim { display: none; }
 }
 
 /* =========================================================
@@ -822,7 +908,7 @@ button {
   grid-template-columns: 1fr;
   gap: 24px;
 }
-@media (min-width: 840px) {
+@media (min-width: 768px) {
   .testimonials {
     grid-template-columns: 1fr 1fr;
     gap: 32px;
@@ -1839,4 +1925,28 @@ button {
   .mobile-cta {
     display: none;
   }
+}
+
+/* =========================================================
+   Responsive polish — tight breakpoint coverage
+   ========================================================= */
+
+/* Mobile logo tiles in the marquee — 160×72 is too large at 375px */
+@media (max-width: 639px) {
+  .logo-box { width: 120px; height: 56px; padding: 10px 14px; }
+}
+
+/* Multi-step form legend — allow badge + title to wrap at 375px */
+.form-step__legend { flex-wrap: wrap; }
+
+/* Apology modal close button — enforce 44×44 touch target */
+.apology-modal__close { width: 44px; height: 44px; font-size: 26px; }
+
+/* Large-desktop typography scale — avoids flat H1 at 1920px */
+@media (min-width: 1280px) {
+  .h1 { font-size: 56px; }
+  .lead { font-size: 20px; }
+}
+@media (min-width: 1600px) {
+  .h1 { font-size: 64px; }
 }

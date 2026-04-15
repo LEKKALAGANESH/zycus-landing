@@ -163,7 +163,7 @@ If any of these don't fire: open DevTools → Console — look for JS errors in 
 - Step 2: Company name; size = `50-499 employees`; role.
 - Step 3: Use case; notes (optional).
 
-Click **See the Platform in Action**.
+Click **Book My Demo**.
 
 ✅ _Confirm:_
 

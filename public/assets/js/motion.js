@@ -153,4 +153,50 @@
     if (hero) ctaObserver.observe(hero);
     if (demoForm) ctaObserver.observe(demoForm);
   }
+
+  // =========================================================
+  // Mobile hamburger — drawer open/close with scrim + escape
+  // =========================================================
+  const navToggle = document.querySelector('.nav-toggle');
+  const siteNav   = document.getElementById('site-nav');
+  if (navToggle && siteNav) {
+    const scrim = document.createElement('div');
+    scrim.className = 'nav-scrim';
+    document.body.appendChild(scrim);
+
+    const open = () => {
+      siteNav.classList.add('is-open');
+      scrim.classList.add('is-visible');
+      document.body.classList.add('nav-open');
+      navToggle.setAttribute('aria-expanded', 'true');
+      navToggle.setAttribute('aria-label', 'Close navigation menu');
+      const firstLink = siteNav.querySelector('a');
+      if (firstLink) firstLink.focus({ preventScroll: true });
+    };
+    const close = () => {
+      siteNav.classList.remove('is-open');
+      scrim.classList.remove('is-visible');
+      document.body.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open navigation menu');
+      navToggle.focus({ preventScroll: true });
+    };
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = siteNav.classList.contains('is-open');
+      isOpen ? close() : open();
+    });
+    scrim.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && siteNav.classList.contains('is-open')) close();
+    });
+    siteNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (siteNav.classList.contains('is-open')) close();
+      });
+    });
+    // Auto-close when viewport crosses desktop breakpoint
+    const mq = window.matchMedia('(min-width: 768px)');
+    mq.addEventListener('change', (e) => { if (e.matches && siteNav.classList.contains('is-open')) close(); });
+  }
 })();

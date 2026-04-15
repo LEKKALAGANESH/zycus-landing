@@ -25,4 +25,16 @@ final class Csrf
 
         return hash_equals((string) ($_SESSION['csrf'] ?? ''), $token);
     }
+
+    /**
+     * Rotate after any successful state-changing POST so a captured token
+     * cannot be replayed within the same session.
+     */
+    public static function rotate(): void
+    {
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+        $_SESSION['csrf'] = bin2hex(random_bytes(32));
+    }
 }

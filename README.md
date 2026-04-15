@@ -5,16 +5,23 @@
 <h1 align="center">Zycus Landing Page</h1>
 
 <p align="center">
-  <em>A production-grade, zero-framework PHP 8.2+ B2B landing page for Zycus AI-Powered Source-to-Pay procurement.</em>
+  <em>High-conversion WordPress + Elementor + MetForm demo landing page for Zycus AI-Powered Source-to-Pay procurement. Ships with a complete step-by-step build guide, importable MetForm &amp; GTM artefacts, and a supplemental from-scratch PHP reference implementation as a performance benchmark.</em>
 </p>
 
 <p align="center">
-  <a href="#"><img alt="PHP"       src="https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php&logoColor=white"></a>
-  <a href="#"><img alt="MySQL"     src="https://img.shields.io/badge/MySQL-5.7%2B-4479A1?logo=mysql&logoColor=white"></a>
+  <a href="#"><img alt="WordPress" src="https://img.shields.io/badge/WordPress-6.5%2B-21759B?logo=wordpress&logoColor=white"></a>
+  <a href="#"><img alt="Elementor" src="https://img.shields.io/badge/Elementor-Pro-92003B?logo=elementor&logoColor=white"></a>
+  <a href="#"><img alt="MetForm"   src="https://img.shields.io/badge/MetForm-blueprint%20ready-40A4FB"></a>
+  <a href="#"><img alt="GTM"       src="https://img.shields.io/badge/GTM-KG8889HK-246FDB?logo=googletagmanager&logoColor=white"></a>
+  <a href="#"><img alt="GA4"       src="https://img.shields.io/badge/GA4-G--1MG1YKNRDF-E37400?logo=googleanalytics&logoColor=white"></a>
   <a href="#"><img alt="WCAG"      src="https://img.shields.io/badge/WCAG-2.1%20AA-0F3D81"></a>
-  <a href="#"><img alt="CWV"       src="https://img.shields.io/badge/Core%20Web%20Vitals-pass-2ea44f"></a>
-  <a href="#"><img alt="Framework" src="https://img.shields.io/badge/framework-none-FF1446"></a>
+  <a href="docs/PERFORMANCE-EVIDENCE.md"><img alt="CWV"       src="https://img.shields.io/badge/Core%20Web%20Vitals-target-2ea44f"></a>
+  <a href="#"><img alt="PHP"       src="https://img.shields.io/badge/PHP%20reference-8.2%2B-777BB4?logo=php&logoColor=white"></a>
   <a href="#"><img alt="License"   src="https://img.shields.io/badge/license-Proprietary-lightgrey"></a>
+</p>
+
+<p align="center">
+  <strong>Primary deliverable →</strong> <a href="docs/CLIENT-SUBMISSION.md">Cover letter</a> · <a href="docs/ELEMENTOR-BUILD-GUIDE.md">Elementor build guide</a> · <a href="docs/INSTAWP-QUICKDEPLOY.md">15-min live demo</a> · <a href="docs/">all 16 docs</a>
 </p>
 
 <p align="center">
@@ -32,9 +39,27 @@
 
 ## Overview
 
-Conversion-focused single-page site targeting **Enterprise B2B procurement leaders**. Built with vanilla PHP, hand-written CSS, and three small IIFE JavaScript modules — no frameworks, no build step, no bundler. Deployable to any LAMP/LEMP host, with the free tier of InfinityFree as the reference target.
+Client brief: *"Build a high-conversion landing page for a Zycus product demo. Outline steps using WordPress/Elementor, including forms, responsiveness, and basic tracking integration."*
+
+**This repository ships two implementations:**
+
+1. **Primary — WordPress + Elementor build** delivered as a 14-stage step-by-step guide ([`docs/ELEMENTOR-BUILD-GUIDE.md`](docs/ELEMENTOR-BUILD-GUIDE.md)) plus four import-ready artefact files under [`build-artifacts/`](build-artifacts/): MetForm form blueprint, GTM container (`GTM-KG8889HK`), WPCode snippets (13 production-ready snippets), and a 200-line drop-in Elementor Custom CSS kit. A working sandbox can be stood up in ~15 minutes per [`docs/INSTAWP-QUICKDEPLOY.md`](docs/INSTAWP-QUICKDEPLOY.md).
+
+2. **Supplemental — PHP reference implementation** (this repo's source tree) — a from-scratch, zero-framework PHP 8.2+ build of the same landing page with identical markup, CSS tokens, and form behaviour. Exists as an **executable spec** the WordPress developer can diff against, and as a **performance benchmark** the Elementor build's Lighthouse score should match.
 
 The visual language is **refined and corporate**: Torea Bay `#0F3D81` for depth and body text, Dodger Blue `#40A4FB` for secondary accents, and Torch Red `#FF1446` reserved exclusively for primary CTAs and focus rings. Motion is purposeful and restrained, synchronised to a single Apple-HIG easing curve.
+
+### Start here
+
+| You are… | Read this first |
+|---|---|
+| Client evaluator (60 seconds) | [`docs/CLIENT-SUBMISSION.md`](docs/CLIENT-SUBMISSION.md) |
+| WordPress developer building the page | [`docs/ELEMENTOR-BUILD-GUIDE.md`](docs/ELEMENTOR-BUILD-GUIDE.md) |
+| Need a live demo URL tomorrow | [`docs/INSTAWP-QUICKDEPLOY.md`](docs/INSTAWP-QUICKDEPLOY.md) |
+| Client QA team running UAT | [`docs/UAT-TEST-PLAN.md`](docs/UAT-TEST-PLAN.md) |
+| Security / procurement / legal | [`docs/SECURITY-AND-COMPLIANCE.md`](docs/SECURITY-AND-COMPLIANCE.md) + [`docs/ACCESSIBILITY-AUDIT.md`](docs/ACCESSIBILITY-AUDIT.md) |
+| Marketing ops wiring GA4 | [`docs/ANALYTICS-EVENTS.md`](docs/ANALYTICS-EVENTS.md) + [`docs/SEO-CONTENT-PLAN.md`](docs/SEO-CONTENT-PLAN.md) |
+| Full index | [`docs/README.md`](docs/README.md) |
 
 ---
 
@@ -81,7 +106,7 @@ The visual language is **refined and corporate**: Torea Bay `#0F3D81` for depth 
 ├── docs/
 │   ├── BUILD-GUIDE.md            # Step-by-step setup, GA4/GTM, InfinityFree deploy
 │   ├── PHP-IMPLEMENTATION-PLAN.md  # Architecture + binding design-rules contract
-│   └── free-plugins-guide.md     # Reference for the optional WordPress/Elementor port
+│   └── free-plugins-guide.md     # Free-tier plugin set for the WordPress/Elementor build
 ├── public/                       # Web root — point Apache / Nginx here
 │   ├── .htaccess
 │   ├── index.php
@@ -237,7 +262,7 @@ Pre-flight checklist:
 
 - [ ] Convert client logos from JPG to WebP for a ~40% payload reduction
 - [ ] Self-host Inter woff2 with `<link rel="preload" as="font">`
-- [ ] Optional WordPress / Elementor port following the spec in `docs/PHP-IMPLEMENTATION-PLAN.md`
+- [x] WordPress / Elementor build guide — shipped as the **primary deliverable** at `docs/ELEMENTOR-BUILD-GUIDE.md` with importable artefacts under `build-artifacts/`
 - [ ] PHP-enum migration for `company_size`, `role`, `use_case` magic strings
 - [ ] CI pipeline (PHP-CS-Fixer, Psalm, Lighthouse CI)
 

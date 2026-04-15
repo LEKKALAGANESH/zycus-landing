@@ -842,16 +842,16 @@ Update field `name`s to match the validator (`first_name`, `last_name`, `company
           }
         }
         submitBtn.disabled = false;
-        submitBtn.textContent = "See the Platform in Action";
+        submitBtn.textContent = "Book My Demo";
       } else {
         alert(data.error || "Submission failed.");
         submitBtn.disabled = false;
-        submitBtn.textContent = "See the Platform in Action";
+        submitBtn.textContent = "Book My Demo";
       }
     } catch (err) {
       alert("Network error. Please try again.");
       submitBtn.disabled = false;
-      submitBtn.textContent = "See the Platform in Action";
+      submitBtn.textContent = "Book My Demo";
     }
   });
 })();
@@ -1124,7 +1124,7 @@ Implemented in `public/thank-you.php`:
 1. Header with brain logo (same component).
 2. `.thank-you__card` — centered success container:
    - Checkmark SVG badge (Dodger Blue tint).
-   - `<h1>Thank You! Your Demo is Confirmed.</h1>`
+   - `<h1>Demo Request Confirmed!</h1>`
    - Sub-headline: 24-hour response commitment.
    - `<h2>While you wait</h2>` section.
    - Off-ramp: `.btn--secondary` (Dodger Blue outline) "Download the S2P Diagnostic Guide" + underlined text link "Explore more resources →".
@@ -1232,7 +1232,7 @@ These strings are the binding contract. Implemented in PHP: `public/thank-you.ph
 ### Apology / database error — personalized (Elementor Server Error)
 
 - **Headline:** `Connection Interrupted`
-- **Body (personalized):** `Hi {first_name}, we sincerely apologize, but we are experiencing a temporary server issue and couldn't process your request for {email}. Please wait a few moments and try submitting again. If the issue persists, you can bypass this form and email our team directly at sales@zycus.landing.com to schedule your demo.`
+- **Body (personalized):** `Hi {first_name}, we sincerely apologize, but we are experiencing a temporary server issue and couldn't process your request for {email}. Please wait a few moments and try submitting again. If the issue persists, you can bypass this form and email our team directly at sales@zycus.com to schedule your demo.`
 - **Body (fallback, empty fields):** same sentence without the "Hi {name}," prefix and the "for {email}" clause — `buildDbErrorBody()` in `form.js` strips both when the values are empty.
 
 **PHP implementation:** `form.js` reads the live `first_name` and `email` values from the form at the moment of failure (no server round-trip needed — the data is already in the DOM). `showApologyModal("Connection Interrupted", buildDbErrorBody())` is called on both 503 responses and network-level `fetch` failures, so the user sees the same consistent apology regardless of whether the PHP process responded.
@@ -1257,7 +1257,7 @@ The PHP build renders `<div id="zycus-apology-modal" class="apology-modal" role=
 1. In *MetForm → Additional Options → Custom Messages* paste the exact headline/body into the Server Error box with shortcodes for personalization.
 2. Wrap the body copy in `<div id="zycus-apology-modal">…</div>` so custom CSS can upgrade it to the floating modal style.
 3. Copy the `.apology-modal__*` rules from `public/assets/css/styles.css` into *Site Settings → Custom CSS* verbatim.
-4. Add a "Try Again" button (re-submit) and "Email Sales Instead" button (`mailto:sales@zycus.landing.com?subject=Zycus%20Demo%20Request`) inside the same wrapper.
+4. Add a "Try Again" button (re-submit) and "Email Sales Instead" button (`mailto:sales@zycus.com?subject=Zycus%20Demo%20Request`) inside the same wrapper.
 
 ## Form dropdown polish (PHP reference + MetForm port)
 

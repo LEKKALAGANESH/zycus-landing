@@ -14,9 +14,14 @@ final class Validator
         }
 
         $email = trim((string) ($input['email'] ?? ''));
+        // Match free-email providers across all TLDs (gmail.com, gmail.co.uk,
+        // yahoo.co.in, outlook.jp, etc.) by keying off the domain label, not
+        // the full ".com" suffix.
+        $freeMailDomains = ['gmail', 'yahoo', 'hotmail', 'outlook', 'live', 'icloud', 'aol', 'protonmail', 'proton', 'gmx', 'mail', 'yandex', 'zoho', 'rediffmail'];
+        $freeMailRegex = '/@(' . implode('|', $freeMailDomains) . ')\.[a-z][a-z0-9.\-]*[a-z]$/i';
         if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = 'Please enter a valid email address.';
-        } elseif (preg_match('/@(gmail|yahoo|hotmail|outlook|icloud)\.com$/i', $email)) {
+        } elseif (preg_match($freeMailRegex, $email)) {
             $errors['email'] = 'Please use your work email.';
         } else {
             $clean['email'] = $email;

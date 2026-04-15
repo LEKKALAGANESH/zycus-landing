@@ -196,7 +196,7 @@
 
       showApologyModal(
         'Submission failed.',
-        data.error || 'Something went wrong. Please try again, or email sales@zycus.landing.com to schedule your demo.'
+        data.error || 'Something went wrong. Please try again, or email sales@zycus.com to schedule your demo.'
       );
       announce(data.error || 'Submission failed.');
       restoreButton();
@@ -222,7 +222,7 @@
     const email = getLeadEmail();
     const greeting = name ? `Hi ${name}, ` : '';
     const emailPhrase = email ? ` for ${email}` : '';
-    return `${greeting}we sincerely apologize, but we are experiencing a temporary server issue and couldn't process your request${emailPhrase}. Please wait a few moments and try submitting again. If the issue persists, you can bypass this form and email our team directly at sales@zycus.landing.com to schedule your demo.`;
+    return `${greeting}we sincerely apologize, but we are experiencing a temporary server issue and couldn't process your request${emailPhrase}. Please wait a few moments and try submitting again. If the issue persists, you can bypass this form and email our team directly at sales@zycus.com to schedule your demo.`;
   }
 
   function showApologyModal(headline, body) {
@@ -244,7 +244,7 @@
         <p id="apology-modal-body" class="apology-modal__body">${escapeHtml(body)}</p>
         <div class="apology-modal__actions">
           <button type="button" class="btn btn--primary" data-close>Try Again</button>
-          <a href="mailto:sales@zycus.landing.com?subject=Zycus%20Demo%20Request" class="btn btn--secondary">Email Sales Instead</a>
+          <a href="mailto:sales@zycus.com?subject=Zycus%20Demo%20Request" class="btn btn--secondary">Email Sales Instead</a>
         </div>
       </div>
     `;

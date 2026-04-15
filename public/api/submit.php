@@ -12,13 +12,18 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     exit;
 }
 
-$forwarded = (string) ($_SERVER['HTTP_X_FORWARDED_FOR'] ?? '');
-if ($forwarded !== '') {
-    $ip = trim(explode(',', $forwarded)[0]);
+// X-Forwarded-For is only honoured behind a trusted proxy/CDN. Accepting it
+// unconditionally lets any client spoof their IP and bypass rate-limiting.
+$trustProxy = strtolower((string) \Zycus\Config::get('TRUSTED_PROXY', 'false')) === 'true';
+if ($trustProxy) {
+    $forwarded = (string) ($_SERVER['HTTP_X_FORWARDED_FOR'] ?? '');
+    $ip = $forwarded !== ''
+        ? trim(explode(',', $forwarded)[0])
+        : (string) ($_SERVER['REMOTE_ADDR'] ?? '');
 } else {
     $ip = (string) ($_SERVER['REMOTE_ADDR'] ?? '');
 }
-if ($ip === '') {
+if ($ip === '' || !filter_var($ip, FILTER_VALIDATE_IP)) {
     $ip = '0.0.0.0';
 }
 
@@ -53,7 +58,7 @@ try {
         'ok' => false,
         'errorType' => 'database',
         'errorHeadline' => 'Connection Interrupted',
-        'errorBody' => 'Our database is currently unable to process your request. Please wait a few moments and try submitting again. If the issue persists, email our team directly at sales@zycus.landing.com to schedule your demo.',
+        'errorBody' => 'Our database is currently unable to process your request. Please wait a few moments and try submitting again. If the issue persists, email our team directly at sales@zycus.com to schedule your demo.',
     ]);
     exit;
 }
@@ -69,7 +74,7 @@ try {
         'ok' => false,
         'errorType' => 'database',
         'errorHeadline' => 'We sincerely apologize, but we are experiencing a temporary connection issue.',
-        'errorBody' => 'Our database is currently unable to process your request due to a server timeout. Please wait a few seconds and try submitting again. If the issue persists, you can bypass this form and directly email our team at sales@zycus.landing.com to schedule your demo.',
+        'errorBody' => 'Our database is currently unable to process your request due to a server timeout. Please wait a few seconds and try submitting again. If the issue persists, you can bypass this form and directly email our team at sales@zycus.com to schedule your demo.',
     ]);
     exit;
 } catch (\Throwable $e) {
@@ -77,7 +82,7 @@ try {
     http_response_code(500);
     echo json_encode([
         'ok' => false,
-        'error' => 'Something went wrong. Please try again or email sales@zycus.landing.com directly.',
+        'error' => 'Something went wrong. Please try again or email sales@zycus.com directly.',
     ]);
     exit;
 }
@@ -87,6 +92,9 @@ $_SESSION['zycus_lead'] = [
     'email'      => $clean['email']      ?? '',
     'submitted_at' => time(),
 ];
+
+// Rotate CSRF token so a captured nonce cannot be replayed in-session.
+Csrf::rotate();
 
 $redirect = match ($clean['company_size']) {
     'enterprise', 'large_enterprise' => (string) \Zycus\Config::get('APP_CALENDLY_URL', 'https://calendly.com/zycus-enterprise-ae'),
