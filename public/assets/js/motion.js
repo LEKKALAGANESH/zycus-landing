@@ -164,12 +164,17 @@
     scrim.className = 'nav-scrim';
     document.body.appendChild(scrim);
 
+    const mainEl = document.getElementById('main-content');
     const open = () => {
       siteNav.classList.add('is-open');
       scrim.classList.add('is-visible');
       document.body.classList.add('nav-open');
       navToggle.setAttribute('aria-expanded', 'true');
       navToggle.setAttribute('aria-label', 'Close navigation menu');
+      if (mainEl) {
+        mainEl.setAttribute('aria-hidden', 'true');
+        mainEl.setAttribute('inert', '');
+      }
       const firstLink = siteNav.querySelector('a');
       if (firstLink) firstLink.focus({ preventScroll: true });
     };
@@ -179,6 +184,10 @@
       document.body.classList.remove('nav-open');
       navToggle.setAttribute('aria-expanded', 'false');
       navToggle.setAttribute('aria-label', 'Open navigation menu');
+      if (mainEl) {
+        mainEl.removeAttribute('aria-hidden');
+        mainEl.removeAttribute('inert');
+      }
       navToggle.focus({ preventScroll: true });
     };
 

@@ -155,6 +155,9 @@ button {
   letter-spacing: -0.02em;
   line-height: 1.15;
   margin: 0 0 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .h1 {
@@ -477,11 +480,14 @@ button {
 .site-nav__cta { align-self: flex-start; margin-top: 8px; }
 .site-header__cta { display: none; }
 
-/* Scrim behind the drawer */
+/* Scrim behind the drawer — fully opaque + blurred so hero text beneath
+   doesn't bleed through the translucent layer on mobile */
 .nav-scrim {
   position: fixed;
   inset: 0;
-  background: rgba(15, 61, 129, 0.42);
+  background: rgba(15, 61, 129, 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 280ms ease;
@@ -508,7 +514,7 @@ body.nav-open { overflow: hidden; }
     z-index: auto;
   }
   .site-nav a { font-size: 15px; font-weight: 500; color: var(--text); min-height: auto; }
-  .site-nav__cta { display: none; }
+  .site-nav__cta { display: none !important; }
   .site-header__cta { display: inline-flex; }
   .nav-scrim { display: none; }
 }
@@ -590,7 +596,7 @@ body.nav-open { overflow: hidden; }
   gap: 48px;
   align-items: center;
 }
-@media (min-width: 960px) {
+@media (min-width: 1024px) {
   .hero__grid {
     grid-template-columns: 1.05fr 1fr;
     gap: 64px;
