@@ -46,6 +46,6 @@ Read in this order:
 
 ## Ready to submit?
 
-1. Fill the four URL placeholders in `CLIENT-SUBMISSION.md` → **Submission attachments** table: `{{LIVE_URL}}`, `{{LOOM_URL}}`, `{{GEMINI_RESEARCH_LINK}}`, `{{PROJECT_ZIP_LINK}}`.
-2. Stand up the live demo per `INSTAWP-QUICKDEPLOY.md` (WordPress Playground / InfinityFree) and use that URL for `{{LIVE_URL}}`.
+1. Fill the three remaining URL placeholders in `CLIENT-SUBMISSION.md` → **Submission attachments** table: `{{LOOM_URL}}`, `{{GEMINI_RESEARCH_LINK}}`, `{{PROJECT_ZIP_LINK}}`. (Live URL is already set to `https://zycus-demo.infinityfreeapp.com/` — DNS propagates within 72 hours of submission.)
+2. Live demo is hosted on InfinityFree at https://zycus-demo.infinityfreeapp.com/ per `INSTAWP-QUICKDEPLOY.md`.
 3. Send `CLIENT-SUBMISSION.md` as the email body and link to this folder in the repo as the full artefact bundle.
