@@ -185,7 +185,7 @@
     "notifications": {
       "email": {
         "enabled": true,
-        "to": "sales@zycus.com",
+        "to": "sales@zycus.landing.com",
         "from": "noreply@zycus.com",
         "_comment_from": "Replace zycus.com with the production sender domain (must have SPF + DKIM configured).",
         "reply_to": "[mf-form-data field=\"email\"]",

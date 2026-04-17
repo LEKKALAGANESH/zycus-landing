@@ -58,7 +58,7 @@ try {
         'ok' => false,
         'errorType' => 'database',
         'errorHeadline' => 'Connection Interrupted',
-        'errorBody' => 'Our database is currently unable to process your request. Please wait a few moments and try submitting again. If the issue persists, email our team directly at sales@zycus.com to schedule your demo.',
+        'errorBody' => 'Our database is currently unable to process your request. Please wait a few moments and try submitting again. If the issue persists, email our team directly at sales@zycus.landing.com to schedule your demo.',
     ]);
     exit;
 }
@@ -74,7 +74,7 @@ try {
         'ok' => false,
         'errorType' => 'database',
         'errorHeadline' => 'We sincerely apologize, but we are experiencing a temporary connection issue.',
-        'errorBody' => 'Our database is currently unable to process your request due to a server timeout. Please wait a few seconds and try submitting again. If the issue persists, you can bypass this form and directly email our team at sales@zycus.com to schedule your demo.',
+        'errorBody' => 'Our database is currently unable to process your request due to a server timeout. Please wait a few seconds and try submitting again. If the issue persists, you can bypass this form and directly email our team at sales@zycus.landing.com to schedule your demo.',
     ]);
     exit;
 } catch (\Throwable $e) {
@@ -82,7 +82,7 @@ try {
     http_response_code(500);
     echo json_encode([
         'ok' => false,
-        'error' => 'Something went wrong. Please try again or email sales@zycus.com directly.',
+        'error' => 'Something went wrong. Please try again or email sales@zycus.landing.com directly.',
     ]);
     exit;
 }

@@ -27,7 +27,7 @@ This document walks you through building the **Zycus Demo Request** form inside 
 3. Name it `Zycus Demo Request`.
 4. Leave "Start from scratch" selected → click **Edit Form**.
 
-*[screenshot: MetForm "Add New Form" modal showing the "Multi Step" tab selected and the name field filled in]*
+_[screenshot: MetForm "Add New Form" modal showing the "Multi Step" tab selected and the name field filled in]_
 
 You will land in the Elementor-style MetForm editor with a default multi-step container already placed.
 
@@ -43,7 +43,7 @@ You will land in the Elementor-style MetForm editor with a default multi-step co
    - **Progress Indicator Style:** `Step` (numbered dots with labels)
    - **Step Position:** Top
 
-*[screenshot: left panel "Form Settings" with Progress Indicator toggle ON]*
+_[screenshot: left panel "Form Settings" with Progress Indicator toggle ON]_
 
 ---
 
@@ -54,6 +54,7 @@ Click the first step tab at the top of the canvas. Rename it to **About You**.
 Drag these widgets in order from the MetForm widgets panel (left sidebar, "MetForm Fields" section):
 
 ### 3.1 — Email field (`email`)
+
 - Widget: **MF Email**
 - **Label:** `Work Email`
 - **Placeholder:** `you@company.com`
@@ -63,20 +64,23 @@ Drag these widgets in order from the MetForm widgets panel (left sidebar, "MetFo
 - **Custom validation message:** `Please use your work email`
 
 > **Free-email blocking:** MetForm free does not support regex rejection of domains natively. Two workarounds:
+>
 > 1. Use the "Custom validation" field in **Advanced → Validation** with regex:
 >    `^(?!.*@(gmail|yahoo|hotmail|outlook)\.com$).+@.+\..+$`
 >    and message `Please use your work email`.
 > 2. OR install the free **MetForm Validator Extensions** snippet (see `functions.php` approach in the README appendix).
 
-*[screenshot: Advanced tab showing the custom regex validation input]*
+_[screenshot: Advanced tab showing the custom regex validation input]_
 
 ### 3.2 — First Name (`first_name`)
+
 - Widget: **MF Text**
 - **Label:** `First Name`
 - **Name attribute:** `first_name`
 - **Required:** ON
 
 ### 3.3 — Last Name (`last_name`)
+
 - Widget: **MF Text**
 - **Label:** `Last Name`
 - **Name attribute:** `last_name`
@@ -89,12 +93,14 @@ Drag these widgets in order from the MetForm widgets panel (left sidebar, "MetFo
 Click the second step tab. Rename it to **About Your Company**.
 
 ### 4.1 — Company Name (`company_name`)
+
 - Widget: **MF Text**
 - **Label:** `Company Name`
 - **Name attribute:** `company_name`
 - **Required:** ON
 
 ### 4.2 — Company Size (`company_size`)
+
 - Widget: **MF Select**
 - **Label:** `Company Size`
 - **Name attribute:** `company_size`
@@ -107,9 +113,10 @@ Click the second step tab. Rename it to **About Your Company**.
   5,000+ employees|large_enterprise
   ```
 
-*[screenshot: MF Select options editor with the four rows entered]*
+_[screenshot: MF Select options editor with the four rows entered]_
 
 ### 4.3 — Your Role (`role`)
+
 - Widget: **MF Select**
 - **Label:** `Your Role`
 - **Name attribute:** `role`
@@ -130,6 +137,7 @@ Click the second step tab. Rename it to **About Your Company**.
 Click the third step tab. Rename it to **Your Priority**.
 
 ### 5.1 — Primary Use Case (`use_case`)
+
 - Widget: **MF Select**
 - **Label:** `Primary Use Case`
 - **Name attribute:** `use_case`
@@ -143,6 +151,7 @@ Click the third step tab. Rename it to **Your Priority**.
   ```
 
 ### 5.2 — Notes (`notes`)
+
 - Widget: **MF Textarea**
 - **Label:** `Anything else we should know?`
 - **Placeholder:** `Tell us about your biggest procurement bottleneck`
@@ -150,7 +159,7 @@ Click the third step tab. Rename it to **Your Priority**.
 - **Required:** OFF
 - **Max length:** `500`
 
-*[screenshot: MF Textarea Advanced tab showing the 500-char limit setting]*
+_[screenshot: MF Textarea Advanced tab showing the 500-char limit setting]_
 
 ---
 
@@ -163,7 +172,7 @@ Click the third step tab. Rename it to **Your Priority**.
    > `Secure & confidential. We respect your inbox — no spam, no credit card required.`
 5. Style it small and muted: `font-size: 13px; color: #6b7280; text-align: center;`.
 
-*[screenshot: bottom of form showing submit button and trust microcopy]*
+_[screenshot: bottom of form showing submit button and trust microcopy]_
 
 ---
 
@@ -173,8 +182,8 @@ Go to the MetForm frame → left panel → **Settings → Email Notification**. 
 
 Fill in as follows:
 
-- **Email To:** `sales@zycus.com`
-- **Email From:** `noreply@zycus.com`  *(must be a domain where SPF + DKIM are configured on the sending server — otherwise Gmail/Outlook will junk the mail)*
+- **Email To:** `sales@zycus.landing.com`
+- **Email From:** `noreply@zycus.com` _(must be a domain where SPF + DKIM are configured on the sending server — otherwise Gmail/Outlook will junk the mail)_
 - **Email Subject:** `New Demo Request — [mf-form-data field="company_name"]`
 - **Reply To:** `[mf-form-data field="email"]`
 - **Email Body** (paste this HTML/shortcode block into the Body editor, switching to Text/Code view):
@@ -191,20 +200,23 @@ Fill in as follows:
   <li><strong>Primary Use Case:</strong> [mf-form-data field="use_case"]</li>
   <li><strong>Notes:</strong> [mf-form-data field="notes"]</li>
 </ul>
-<hr>
-<p><small>
-  Submitted at: [mf-submission-date]<br>
-  Source URL: [mf-page-url]
-</small></p>
+<hr />
+<p>
+  <small>
+    Submitted at: [mf-submission-date]<br />
+    Source URL: [mf-page-url]
+  </small>
+</p>
 ```
 
 > **Shortcode reference (free MetForm):**
+>
 > - `[mf-form-data field="FIELD_NAME"]` — pulls a submitted field value
 > - `[mf-submission-date]` — submission timestamp
 > - `[mf-page-url]` — URL of the page the form was submitted from
-> If your MetForm version doesn't expose `[mf-page-url]`, add a hidden field `source_url` and populate it with `{{current_url}}` via MetForm's dynamic fields (Advanced tab).
+>   If your MetForm version doesn't expose `[mf-page-url]`, add a hidden field `source_url` and populate it with `{{current_url}}` via MetForm's dynamic fields (Advanced tab).
 
-*[screenshot: Email Notification panel with all fields populated]*
+_[screenshot: Email Notification panel with all fields populated]_
 
 ---
 
@@ -215,6 +227,7 @@ Go to **Settings → Confirmation** in the left panel.
 MetForm free supports a single global redirect URL. For the multi-branch logic below, use one of these approaches:
 
 ### Option A — MetForm Pro (native conditional logic)
+
 `Settings → Confirmation → Conditional Logic → Add Rule`
 
 Create three rules in this order (first match wins):
@@ -222,7 +235,7 @@ Create three rules in this order (first match wins):
 1. **Rule 1 (Enterprise route)**
    - IF `company_size` `equals` `enterprise` OR `company_size` `equals` `large_enterprise`
    - THEN **Redirect to URL:** `https://calendly.com/zycus-enterprise-ae`
-     *(placeholder — replace with the real Calendly AE link)*
+     _(placeholder — replace with the real Calendly AE link)_
 
 2. **Rule 2 (Self-serve route)**
    - IF `company_size` `equals` `small`
@@ -232,9 +245,10 @@ Create three rules in this order (first match wins):
    - IF no prior rule matched
    - THEN **Redirect to URL:** `/thank-you/?form=zycus_demo`
 
-*[screenshot: Conditional Logic panel with three rules listed]*
+_[screenshot: Conditional Logic panel with three rules listed]_
 
 ### Option B — Free-tier workaround (no Pro)
+
 Set the global redirect in `Settings → Confirmation → Redirect To` to `/thank-you/?form=zycus_demo` and add this snippet to your theme's `functions.php` (or a Code Snippets plugin) to override per company size:
 
 ```php
@@ -267,7 +281,7 @@ add_action('metform/after_store_form_data', function($form_id, $form_data) {
 5. Toggle **Custom Style** ON if you want to override MetForm's defaults with Elementor styling controls.
 6. Click **Update** to publish.
 
-*[screenshot: Elementor sidebar with MetForm widget dragged in and "Zycus Demo Request" selected in the dropdown]*
+_[screenshot: Elementor sidebar with MetForm widget dragged in and "Zycus Demo Request" selected in the dropdown]_
 
 ---
 
@@ -296,7 +310,7 @@ add_filter('metform/validate/field/email', function($is_valid, $value, $field) {
 - [ ] All 8 fields added with exact name attributes
 - [ ] Submit button reads `Book My Demo`
 - [ ] Trust microcopy below submit button
-- [ ] Email notification to `sales@zycus.com` with body shortcodes
+- [ ] Email notification to `sales@zycus.landing.com` with body shortcodes
 - [ ] Conditional redirects set (Pro) or `functions.php` snippet added (free)
 - [ ] Free-email domain rejection configured
 - [ ] Form embedded on a page via Elementor's MetForm widget

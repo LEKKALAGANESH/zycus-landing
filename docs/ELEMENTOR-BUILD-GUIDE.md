@@ -13,18 +13,21 @@ Target stack: WordPress 6.5+, Elementor Pro 3.22+, MetForm Pro, WPCode Lite, Goo
 Have these gathered before starting Stage 1. Skipping this costs 20-minute detours mid-build.
 
 **Access & credentials**
+
 - [ ] WordPress admin URL + admin username + password (from your host or from `INSTAWP-QUICKDEPLOY.md` Step 1)
 - [ ] FTP / SFTP credentials (only if you need to upload the brain logo manually rather than via Media Library)
 - [ ] SMTP credentials for lead notifications — Brevo / SendGrid / Amazon SES (free tier acceptable). Must have SPF + DKIM configured on the sending domain or mail will spam-folder.
 - [ ] Google account with access to the GTM + GA4 properties
 
 **Licences / plugins**
+
 - [ ] Elementor (Free is enough for this guide; Pro unlocks header/footer builder and extra widgets)
 - [ ] MetForm Lite (Free) — Pro not required, but makes conditional logic + webhooks trivial
 - [ ] WPCode Lite (Free) — for pasting GTM head/body snippets
 - [ ] Yoast SEO Free — for meta tags + FAQ schema
 
 **Assets in hand**
+
 - [ ] Brain logo: `../public/assets/img/zycus-logo.webp` (exact alt text `Zycus AI Procurement Brain Logo` is non-negotiable — brand contract)
 - [ ] Client logos: `../public/assets/img/logos/` (13 JPGs for the marquee; convert to WebP in Stage 3 for payload savings)
 - [ ] Copy source: `../build-artifacts/copy/zycus-landing-copy.md`
@@ -34,12 +37,14 @@ Have these gathered before starting Stage 1. Skipping this costs 20-minute detou
 - [ ] Elementor Custom CSS drop-in: `../build-artifacts/elementor-custom-css.css` (paste into Site Settings → Custom CSS after Stage 2)
 
 **IDs that will be used throughout (pre-filled; replace only if you have your own)**
+
 - GTM container: `GTM-KG8889HK`
 - GA4 measurement: `G-1MG1YKNRDF`
-- Primary sales inbox: `sales@zycus.com`
+- Primary sales inbox: `sales@zycus.landing.com`
 - Calendly enterprise redirect: set per your team — placeholder `https://calendly.com/zycus-enterprise-ae` is in the MetForm blueprint
 
 **Time budget**
+
 - Stage 1–3 (install + globals + assets): ~40 min
 - Stage 4 (homepage build): ~90 min
 - Stage 5–10 (form + thank-you + polish): ~2 hrs
@@ -64,14 +69,14 @@ Have these gathered before starting Stage 1. Skipping this costs 20-minute detou
 
 Create exactly these Global Colors. Do not add more — Elementor's color picker should not be used ad-hoc anywhere.
 
-| Token name     | Hex       | Usage                                                           |
-|----------------|-----------|-----------------------------------------------------------------|
-| Torea Bay      | `#0F3D81` | Body text, headings, footer bg, testimonials section bg         |
-| Dodger Blue    | `#40A4FB` | Secondary accents, off-ramp links                               |
-| Torch Red      | `#FF1446` | Primary CTAs ONLY, required asterisks, focus rings              |
-| Surface Base   | `#FAFBFD` | Page background (never pure white)                              |
-| Surface Alt    | `#F4F7FB` | Alternating light sections                                      |
-| Ink Subtle     | `#4A5B7A` | Muted body, form helper text                                    |
+| Token name   | Hex       | Usage                                                   |
+| ------------ | --------- | ------------------------------------------------------- |
+| Torea Bay    | `#0F3D81` | Body text, headings, footer bg, testimonials section bg |
+| Dodger Blue  | `#40A4FB` | Secondary accents, off-ramp links                       |
+| Torch Red    | `#FF1446` | Primary CTAs ONLY, required asterisks, focus rings      |
+| Surface Base | `#FAFBFD` | Page background (never pure white)                      |
+| Surface Alt  | `#F4F7FB` | Alternating light sections                              |
+| Ink Subtle   | `#4A5B7A` | Muted body, form helper text                            |
 
 Global Fonts: set **Primary** and **Text** both to `Inter` (weights 400/500/600/700 via Google Fonts). Body base 16px mobile, 17px desktop, line-height 1.6. Headings weight 700, line-height 1.2.
 
@@ -130,6 +135,7 @@ Use **Flexbox Containers** (not legacy sections). Set site max width to 1200px, 
 Container: full-width, min-height 560px desktop / 480px mobile, background `#FAFBFD`, two columns at ≥ 1024px (60/40), stacked below.
 
 Left column widgets (top to bottom):
+
 - **Heading (H1)**, Torea Bay, 48px desktop / 32px mobile, weight 700:
   > Cut Procurement Costs by 40% with Agentic AI
 - **Text Editor (subhead)**, Ink Subtle, 18px desktop / 16px mobile, max-width 560px:
@@ -182,11 +188,13 @@ Container: background **Torea Bay** `#0F3D81`, 96px vertical padding, text color
 Two-column grid, 32px gap. Each card: inner container, background `rgba(255,255,255,0.06)`, 1px border `rgba(255,255,255,0.12)`, 32px padding, border-radius 8px. Inside: blockquote (18px, white, line-height 1.6), then attribution (14px Dodger Blue, weight 600).
 
 Card 1:
+
 > "Zycus Merlin AI cut our invoice processing time by 75% in the first six months. What used to take a team of twelve now runs with four people and zero backlog. The AI doesn't just automate — it catches policy exceptions humans missed for years."
 >
 > — Priya Venkataraman, CPO Global Consumer Goods Leader
 
 Card 2:
+
 > "We reduced supplier query response times by 80% and recovered $4.2M in duplicate and off-contract spend in year one. Zycus paid for itself before the rollout was even complete."
 >
 > — Daniel Osei, CFO Multinational Industrial Group
@@ -244,16 +252,16 @@ Container id `demo-form`, background Surface Base, 96px vertical padding, center
 
 Drop a **MetForm** widget, select the pre-built form `Zycus Demo Request` (import from `build-artifacts/metform/zycus-demo-form.json`). The form is a 3-step multistep with these 8 fields:
 
-| # | Label              | Type     | Req | Notes                                                                 |
-|---|--------------------|----------|-----|-----------------------------------------------------------------------|
-| 1 | Work Email         | email    | yes | Placeholder `you@company.com`; reject free domains via regex below    |
-| 2 | First Name         | text     | yes |                                                                       |
-| 3 | Last Name          | text     | yes |                                                                       |
-| 4 | Company Name       | text     | yes |                                                                       |
-| 5 | Company Size       | select   | yes | 1-49 / 50-499 / 500-4,999 / 5,000+ employees                          |
-| 6 | Your Role          | select   | yes | Procurement Leader / Finance Leader / IT / Procurement Team / Other   |
-| 7 | Primary Use Case   | select   | yes | Sourcing & CM / Invoice Automation (AP) / Supplier Mgmt / End-to-End  |
-| 8 | Notes              | textarea | no  | 500 char max; placeholder "Tell us about your biggest procurement bottleneck" |
+| #   | Label            | Type     | Req | Notes                                                                         |
+| --- | ---------------- | -------- | --- | ----------------------------------------------------------------------------- |
+| 1   | Work Email       | email    | yes | Placeholder `you@company.com`; reject free domains via regex below            |
+| 2   | First Name       | text     | yes |                                                                               |
+| 3   | Last Name        | text     | yes |                                                                               |
+| 4   | Company Name     | text     | yes |                                                                               |
+| 5   | Company Size     | select   | yes | 1-49 / 50-499 / 500-4,999 / 5,000+ employees                                  |
+| 6   | Your Role        | select   | yes | Procurement Leader / Finance Leader / IT / Procurement Team / Other           |
+| 7   | Primary Use Case | select   | yes | Sourcing & CM / Invoice Automation (AP) / Supplier Mgmt / End-to-End          |
+| 8   | Notes            | textarea | no  | 500 char max; placeholder "Tell us about your biggest procurement bottleneck" |
 
 Free-domain rejection regex on field 1 (MetForm **Validation → Pattern**):
 
@@ -264,10 +272,12 @@ Free-domain rejection regex on field 1 (MetForm **Validation → Pattern**):
 Styling: labels 14px Torea Bay weight 600, required asterisk Torch Red. Inputs 48px height, 1px border Ink Subtle at 30%, border-radius 6px, focus ring 3px Torch Red at 40% alpha. Submit button identical spec to the hero CTA — label `Book My Demo`. No entrance animation on submit; it must be static.
 
 Below the submit:
+
 > Secure & confidential. We respect your inbox — no spam, no credit card required.
 
 MetForm Custom Messages → Server Error:
-> Connection Interrupted. Hi [field id="first_name"], we sincerely apologize, but we are experiencing a temporary server issue and couldn't process your request for [field id="email"]. Please wait a few moments and try submitting again. If the issue persists, you can bypass this form and email our team directly at sales@zycus.com to schedule your demo.
+
+> Connection Interrupted. Hi [field id="first_name"], we sincerely apologize, but we are experiencing a temporary server issue and couldn't process your request for [field id="email"]. Please wait a few moments and try submitting again. If the issue persists, you can bypass this form and email our team directly at sales@zycus.landing.com to schedule your demo.
 
 MetForm **Success Redirect** → `/thank-you/`.
 
@@ -300,6 +310,7 @@ Separate Page, Elementor Canvas template, background Surface Base.
 > Hi [field id="first_name"], thank you for requesting a demo. We have successfully received your details via [field id="email"]. A Zycus Agentic AI specialist will review your request and reach out within 24 hours to schedule your personalized walkthrough. While you wait, keep an eye on your inbox for our latest S2P Diagnostic Guide.
 
 Two off-ramp buttons, side by side, 48px tall:
+
 - Primary (Torch Red): `Download the S2P Diagnostic Guide`
 - Secondary (outline Dodger Blue): `Explore more resources →`
 
@@ -310,6 +321,7 @@ Two off-ramp buttons, side by side, 48px tall:
 Elementor's breakpoints (Site Settings → Layout → Breakpoints): Mobile ≤ 767px, Tablet 768–1024px, Desktop ≥ 1025px. Review every Section on all three in Elementor's responsive editor.
 
 Per-breakpoint checklist:
+
 - Hero collapses to single column below 1024px; H1 drops from 48px to 32px; CTA stretches to full-width mobile.
 - Trust strip wraps to 2-up on mobile; logos keep 32px min height.
 - How It Works grid: 4-col → 2-col tablet → 1-col mobile.
@@ -327,6 +339,7 @@ Touch-target rule (WCAG 2.1 AA): every link, button, form control, accordion tog
 Install GTM via **WPCode → Header & Footer**. Container ID `GTM-KG8889HK`. Paste the official GTM head snippet in Header, and the noscript iframe snippet in Body. GA4 measurement ID `G-1MG1YKNRDF` is fired by the GTM container — do not hard-code gtag on the page.
 
 Import `build-artifacts/gtm/GTM-zycus-landing.json` into GTM. It ships with three tags:
+
 - GA4 Configuration (`page_view`).
 - GA4 Event `generate_lead` on MetForm success dataLayer push.
 - GA4 Event `demo_confirmed` on thank-you pageview.
@@ -334,6 +347,7 @@ Import `build-artifacts/gtm/GTM-zycus-landing.json` into GTM. It ships with thre
 MetForm success dataLayer push (add via **WPCode → PHP Snippet**, snippet body in `build-artifacts/wpcode/snippets.md`) pushes `{event: 'generate_lead', form_id: 'zycus_demo'}` before the redirect.
 
 Verify in GTM Preview mode:
+
 1. Load homepage → `page_view` fires.
 2. Submit demo form → `generate_lead` fires.
 3. Land on `/thank-you/` → `demo_confirmed` fires.
@@ -350,8 +364,12 @@ Verify in GTM Preview mode:
 - All images WebP where possible, `loading="lazy"` except hero logo (which gets `fetchpriority="high"`).
 - Focus ring: 3px Torch Red at 40% alpha, 2px offset, never suppressed. Add via Custom CSS if the theme overrides:
   ```css
-  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-    outline: 3px solid rgba(255,20,70,0.4);
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid rgba(255, 20, 70, 0.4);
     outline-offset: 2px;
   }
   ```
@@ -388,7 +406,7 @@ Run **before** handing the URL to the client evaluator:
 
 **Thank-You body (with MetForm shortcodes):** Hi [field id="first_name"], thank you for requesting a demo. We have successfully received your details via [field id="email"]. A Zycus Agentic AI specialist will review your request and reach out within 24 hours to schedule your personalized walkthrough. While you wait, keep an eye on your inbox for our latest S2P Diagnostic Guide.
 
-**Server Error (MetForm Custom Messages → Server Error):** Connection Interrupted. Hi [field id="first_name"], we sincerely apologize, but we are experiencing a temporary server issue and couldn't process your request for [field id="email"]. Please wait a few moments and try submitting again. If the issue persists, you can bypass this form and email our team directly at sales@zycus.com to schedule your demo.
+**Server Error (MetForm Custom Messages → Server Error):** Connection Interrupted. Hi [field id="first_name"], we sincerely apologize, but we are experiencing a temporary server issue and couldn't process your request for [field id="email"]. Please wait a few moments and try submitting again. If the issue persists, you can bypass this form and email our team directly at sales@zycus.landing.com to schedule your demo.
 
 ---
 
@@ -417,4 +435,4 @@ All paths are relative to the repository root (this guide lives at `docs/ELEMENT
 
 ---
 
-*This guide is the primary deliverable for the Zycus landing-page evaluation. The `php-app/` folder in the same repository is a supplemental reference implementation built without WordPress, useful as a performance benchmark and design-token reference.*
+_This guide is the primary deliverable for the Zycus landing-page evaluation. The `php-app/` folder in the same repository is a supplemental reference implementation built without WordPress, useful as a performance benchmark and design-token reference._

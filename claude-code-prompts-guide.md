@@ -13,6 +13,7 @@ This project demonstrates how structured AI prompting can be treated as a profes
 **Skills demonstrated:** AI prompt engineering | B2B conversion copywriting | CRO strategy | Core Web Vitals optimization | WCAG accessibility | GA4 and GTM event tracking | Elementor form UX | Brand-token discipline
 
 **Impact snapshot**
+
 - Engineered Core Web Vitals targets (LCP < 2.5s, CLS < 0.1, INP < 200ms) with a pre-handoff audit checklist to protect paid-traffic ROI.
 - Validated `generate_lead` conversion tracking end-to-end in GA4 DebugView across AJAX and redirect paths, closing the attribution gap most Elementor pages miss.
 - Produced a section-by-section prompt library (hero, workflow, social proof, FAQs, post-submit UX) that is reusable across future Zycus campaigns and vertical landers.
@@ -24,6 +25,7 @@ This project demonstrates how structured AI prompting can be treated as a profes
 The Zycus landing page is a B2B enterprise page — buyer committees of 4–10 stakeholders, no impulse purchases, risk-minimization focus. Copy and structure must appeal to logic (hard ROI numbers) while offering emotional confidence (case studies, compliance badges, client logos).
 
 Claude accelerated three workstreams:
+
 1. **Copywriting** — headlines, sub-headlines, testimonials, FAQs, form microcopy.
 2. **Structural guidance** — workflow step naming, section ordering, objection handling.
 3. **Design/brand assets** — logo specification prompt, color palette decisions.
@@ -72,13 +74,13 @@ Follow-up prompt used after first pass:
 
 **Success message prompt pattern:**
 
-> Headline: *Demo Request Confirmed!*
-> Body: *"Hi [field id=\"name\"], thank you for requesting a demo! We have successfully received your details via [field id=\"email\"]. A Zycus Agentic AI specialist will review your request and reach out within 24 hours to schedule your personalized walkthrough."*
+> Headline: _Demo Request Confirmed!_
+> Body: _"Hi [field id=\"name\"], thank you for requesting a demo! We have successfully received your details via [field id=\"email\"]. A Zycus Agentic AI specialist will review your request and reach out within 24 hours to schedule your personalized walkthrough."_
 
 **Server-error message prompt pattern:**
 
-> Headline: *Connection Interrupted*
-> Body: *"Hi [field id=\"name\"], we sincerely apologize, but we are experiencing a temporary server issue and couldn't process your request for [field id=\"email\"]. Please wait a few moments and try again. If the issue persists, email sales@zycus.com directly to schedule your demo."*
+> Headline: _Connection Interrupted_
+> Body: _"Hi [field id=\"name\"], we sincerely apologize, but we are experiencing a temporary server issue and couldn't process your request for [field id=\"email\"]. Please wait a few moments and try again. If the issue persists, email sales@zycus.landing.com directly to schedule your demo."_
 
 Shortcodes `[field id="name"]` / `[field id="email"]` are pulled from the form's Advanced → Shortcode panel so messages render with the user's actual input.
 
@@ -94,11 +96,11 @@ Output saved as `zycus-new-logo.webp` with alt text `Zycus AI Procurement Brain 
 
 ## 3. Brand Tokens Claude Was Instructed to Respect
 
-| Token | Hex | Use |
-|---|---|---|
-| Torea Bay | `#0F3D81` | Backgrounds, primary text, footer |
-| Dodger Blue | `#40A4FB` | Secondary links, accents, graphics |
-| Torch Red | `#FF1446` | **CTA buttons only** (isolated action color) |
+| Token       | Hex       | Use                                          |
+| ----------- | --------- | -------------------------------------------- |
+| Torea Bay   | `#0F3D81` | Backgrounds, primary text, footer            |
+| Dodger Blue | `#40A4FB` | Secondary links, accents, graphics           |
+| Torch Red   | `#FF1446` | **CTA buttons only** (isolated action color) |
 
 **Typography:** sans-serif, minimum 16px body, line-height 1.6 unitless.
 **Headlines:** ≤ 10 words / 44 characters.
@@ -120,14 +122,14 @@ Output saved as `zycus-new-logo.webp` with alt text `Zycus AI Procurement Brain 
 
 ## 5. Conversion & Form-Design Principles Encoded in the Prompts
 
-- **Never use the word "Submit."** Use value-linked copy: *"See the Platform in Action"* or *"Book My Demo"*.
-- **First-person CTAs outperform second-person.** *"Book My Demo"* > *"Book Your Demo"* — psychological ownership lifts conversion.
+- **Never use the word "Submit."** Use value-linked copy: _"See the Platform in Action"_ or _"Book My Demo"_.
+- **First-person CTAs outperform second-person.** _"Book My Demo"_ > _"Book Your Demo"_ — psychological ownership lifts conversion.
 - **Form length by intent:**
   - High volume: 1–2 fields (name + email).
   - Standard B2B qualification: 3–4 fields.
   - Enterprise routing: 6–8 fields, broken into a multi-step form.
 - **Conditional routing:** company size 500+ → AE's Calendly; <50 → self-serve product tour.
-- **Trust microcopy** below the button reduces anxiety (*"No credit card required"*).
+- **Trust microcopy** below the button reduces anxiety (_"No credit card required"_).
 
 ---
 
@@ -137,7 +139,7 @@ Elementor forms submit via AJAX, so page-reload tracking misses them. Two valida
 
 **Option A — Redirect to Thank You page.** Form action → Redirect → `/thank-you/?form-name=zycus-demo`. Track pageview as GA4 conversion.
 
-**Option B — GTM Element Visibility.** Trigger on CSS selector `.elementor-message.elementor-message-success` with *Observe DOM Changes* enabled. Fire a `generate_lead` GA4 event and mark it a Key Event.
+**Option B — GTM Element Visibility.** Trigger on CSS selector `.elementor-message.elementor-message-success` with _Observe DOM Changes_ enabled. Fire a `generate_lead` GA4 event and mark it a Key Event.
 
 Verify either path in GA4 DebugView before declaring the page live.
 
@@ -170,7 +172,7 @@ Generic prompts ("write a headline for Zycus") return generic output. The constr
 
 - [ ] LCP < 2.5s, CLS < 0.1, INP < 200ms on PageSpeed Insights
 - [ ] Hero image NOT lazy-loaded
-- [ ] Elementor *Improved Asset Loading*, *Optimized DOM Output*, *Inline Font Icons* enabled
+- [ ] Elementor _Improved Asset Loading_, _Optimized DOM Output_, _Inline Font Icons_ enabled
 - [ ] All images served as WebP/AVIF
 - [ ] Tab-key navigation reaches every form field with a visible focus outline
 - [ ] Body text contrast ≥ 4.5:1; large text ≥ 3:1
@@ -181,4 +183,4 @@ Generic prompts ("write a headline for Zycus") return generic output. The constr
 
 ---
 
-*End of document.*
+_End of document._

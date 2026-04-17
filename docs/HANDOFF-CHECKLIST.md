@@ -7,6 +7,7 @@ Everything the Zycus team needs to provide or approve after accepting the delive
 ## Marketing Ops owns
 
 ### Copy & brand
+
 - [ ] Sign off on the final copy block-by-block from `build-artifacts/copy/zycus-landing-copy.md` — mark each block "approved" or comment with the replacement wording.
 - [ ] Provide the real **enterprise Calendly URL** (currently the placeholder `https://calendly.com/zycus-enterprise-ae` is wired into the MetForm blueprint and `php-app/.env`'s `APP_CALENDLY_URL`).
 - [ ] Confirm the two testimonial attributions (Priya Venkataraman, CPO; Daniel Osei, CFO) are approved for public use, or supply replacement attributions with photo consent.
@@ -14,6 +15,7 @@ Everything the Zycus team needs to provide or approve after accepting the delive
 - [ ] Commission a **1200×630 OG share image** (see `SEO-CONTENT-PLAN.md` "OpenGraph + Twitter" — current brain-logo fallback is 160×160 and renders poorly on LinkedIn/Twitter previews).
 
 ### Measurement
+
 - [ ] Confirm GTM container `GTM-KG8889HK` is owned by the Zycus GTM account (not a vendor's). If not, create a Zycus-owned container and provide the new ID — we will rewire in both `.env` and the WPCode snippets.
 - [ ] Confirm GA4 property `G-1MG1YKNRDF` is the production Zycus property. If a different measurement ID should be used, update the GTM "GA4 Measurement ID" Constant variable.
 - [ ] Register the 7 custom dimensions in GA4 → Admin → Custom definitions per `ANALYTICS-EVENTS.md` — failure to register drops custom parameters after 24 hours.
@@ -24,18 +26,21 @@ Everything the Zycus team needs to provide or approve after accepting the delive
 ## IT / DevOps owns
 
 ### Hosting
+
 - [ ] Choose production host: **Kinsta** / **SiteGround** / **Pressable** (managed WP) recommended; InfinityFree / Render acceptable for staging only.
 - [ ] Provision the production domain (e.g. `demo.zycus.com`) and point A-record / CNAME to the host.
 - [ ] Issue SSL certificate — Let's Encrypt via the host, or corporate wildcard cert if required.
 - [ ] Open firewall / Cloudflare allowlist for the SMTP relay origin (Brevo IPs: `185.107.232.0/24`).
 
 ### Email & deliverability
+
 - [ ] Provision the sending domain `noreply@zycus.com` with **SPF** + **DKIM** + **DMARC** records. Without these, Gmail and Outlook will junk the notification emails.
 - [ ] Create the `privacy@zycus.com` inbox (GDPR Art. 15/17 data-subject requests land here).
-- [ ] Create the `sales@zycus.com` inbox (or forward to an existing SDR Slack-routing automation).
+- [ ] Create the `sales@zycus.landing.com` inbox (or forward to an existing SDR Slack-routing automation).
 - [ ] Decide MetForm Pro vs Lite. Pro unlocks conditional logic, webhooks, reCAPTCHA v3. Licence procurement is ~$79/year.
 
 ### Access
+
 - [ ] Create a Zycus-owned GitHub organisation and fork the repo from `https://github.com/LEKKALAGANESH/zycus-landing` (or transfer it).
 - [ ] Grant 1Password / Bitwarden access to the vendor for `.env` values during the migration window only.
 - [ ] Enable 2FA on the WP admin account and the GTM account.
@@ -80,17 +85,17 @@ Everything the Zycus team needs to provide or approve after accepting the delive
 
 ## Suggested rollout timeline
 
-| Day | Owner | Activity |
-|---|---|---|
-| 0 | All | Deliverable accepted; checklist kicked off |
-| 1–2 | Marketing, Legal | Copy + privacy policy + terms signed off |
-| 2 | IT | Host chosen, domain DNS propagated |
-| 3 | IT | SMTP + SPF/DKIM configured; `sales@` and `privacy@` inboxes live |
-| 3–4 | Vendor | Staging site built, migrated, URL shared |
-| 4 | Marketing | GTM + GA4 verified in staging; custom dimensions registered |
-| 5 | Security | Vuln scan pass; HSTS-pending approved |
-| 5 | All | UAT walkthrough + go/no-go decision |
-| Day 6+ | IT | DNS cutover to production; HSTS enabled after 1 week of stability |
+| Day    | Owner            | Activity                                                          |
+| ------ | ---------------- | ----------------------------------------------------------------- |
+| 0      | All              | Deliverable accepted; checklist kicked off                        |
+| 1–2    | Marketing, Legal | Copy + privacy policy + terms signed off                          |
+| 2      | IT               | Host chosen, domain DNS propagated                                |
+| 3      | IT               | SMTP + SPF/DKIM configured; `sales@` and `privacy@` inboxes live  |
+| 3–4    | Vendor           | Staging site built, migrated, URL shared                          |
+| 4      | Marketing        | GTM + GA4 verified in staging; custom dimensions registered       |
+| 5      | Security         | Vuln scan pass; HSTS-pending approved                             |
+| 5      | All              | UAT walkthrough + go/no-go decision                               |
+| Day 6+ | IT               | DNS cutover to production; HSTS enabled after 1 week of stability |
 
 ---
 
