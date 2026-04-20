@@ -8,19 +8,54 @@ wp-content/cache/
 # Sensitive config
 wp-config.php
 .env
-*.env.*
+.env.*
+!.env.example
 
 # Elementor Pro zip (commercial license — don't commit)
 elementor-pro*.zip
 
-# OS / editor
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/
-*.swp
+# Composer / PHP dependencies
+vendor/
 
 # Node / build artifacts
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 dist/
+
+# Logs & runtime
 *.log
+storage/logs/*
+!storage/logs/.gitkeep
+storage/cache/
+storage/sessions/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.orig
+*.sublime-project
+*.sublime-workspace
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Deployment artifacts
+deploy/
+*.tar.gz
+*.zip
+
+# Test / coverage
+/coverage/
+/.phpunit.result.cache
+.phpunit.cache/

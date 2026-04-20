@@ -1,0 +1,229 @@
+/* Zycus brand CSS kit — paste into Elementor → Site Settings → Custom CSS. Generated from php-app/docs/ELEMENTOR-BUILD-GUIDE.md §2. Do not modify tokens ad-hoc. */
+
+:root {
+  --torea-bay: #0F3D81;
+  --dodger-blue: #40A4FB;
+  --torch-red: #FF1446;
+  --surface-base: #FAFBFD;
+  --surface-alt: #F4F7FB;
+  --ink-subtle: #4A5B7A;
+  --focus-ring: 3px solid rgba(255, 20, 70, 0.45);
+  --focus-offset: 3px;
+}
+
+body {
+  background: var(--surface-base);
+  color: var(--torea-bay);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  body { font-size: 17px; }
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 100000;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  left: 8px;
+  top: 8px;
+  width: auto;
+  height: auto;
+  padding: 10px 16px;
+  background: var(--torea-bay);
+  color: #FFFFFF;
+  text-decoration: underline;
+  border-radius: 6px;
+}
+
+.elementor-button-link.elementor-button.zycus-cta-primary {
+  background: var(--torch-red);
+  background-image: none;
+  color: #FFFFFF;
+  min-height: 48px;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.elementor-button-link.elementor-button.zycus-cta-primary:hover {
+  background: color-mix(in srgb, var(--torch-red) 88%, black);
+  color: #FFFFFF;
+}
+
+.elementor-button-link.elementor-button.zycus-cta-primary:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.zycus-cta-secondary {
+  background: transparent;
+  color: var(--dodger-blue);
+  border: 2px solid var(--dodger-blue);
+  min-height: 44px;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.zycus-cta-secondary:hover,
+.zycus-cta-secondary:focus-visible {
+  background: var(--dodger-blue);
+  color: #FFFFFF;
+}
+
+.elementor-field-required > label::after,
+.elementor-field-required .elementor-field-label::after,
+label.elementor-field-required::after,
+.elementor-field-required-mark {
+  color: var(--torch-red) !important;
+  font-weight: 700 !important;
+}
+
+.elementor-field-group input[type="text"],
+.elementor-field-group input[type="email"],
+.elementor-field-group input[type="tel"],
+.elementor-field-group input[type="url"],
+.elementor-field-group input[type="number"],
+.elementor-field-group textarea,
+.elementor-field-group select,
+.metform-input-wrapper input[type="text"],
+.metform-input-wrapper input[type="email"],
+.metform-input-wrapper input[type="tel"],
+.metform-input-wrapper textarea,
+.metform-input-wrapper select {
+  min-height: 48px;
+  padding: 14px 16px;
+  border: 2px solid #D6DEEB;
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--torea-bay);
+  background: #FFFFFF;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.elementor-field-group input:hover,
+.elementor-field-group textarea:hover,
+.elementor-field-group select:hover,
+.metform-input-wrapper input:hover,
+.metform-input-wrapper textarea:hover,
+.metform-input-wrapper select:hover {
+  border-color: var(--dodger-blue);
+}
+
+.elementor-field-group input:focus-visible,
+.elementor-field-group textarea:focus-visible,
+.elementor-field-group select:focus-visible,
+.metform-input-wrapper input:focus-visible,
+.metform-input-wrapper textarea:focus-visible,
+.metform-input-wrapper select:focus-visible {
+  border-color: var(--torch-red);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 20, 70, 0.45);
+}
+
+.elementor-field-group input.is-invalid,
+.elementor-field-group textarea.is-invalid,
+.elementor-field-group select.is-invalid,
+.metform-input-wrapper input.is-invalid,
+.metform-input-wrapper textarea.is-invalid,
+.metform-input-wrapper select.is-invalid,
+[aria-invalid="true"] {
+  border-color: var(--torch-red);
+  background: #FFF5F6;
+}
+
+a,
+button,
+input[type="checkbox"],
+input[type="radio"],
+.elementor-button,
+.elementor-accordion-title {
+  min-height: 44px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  min-width: 44px;
+}
+
+.elementor-button-link.elementor-button.zycus-cta-primary { min-height: 48px; }
+
+.zycus-section-dark {
+  background-color: var(--torea-bay);
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(64, 164, 251, 0.14), transparent 45%),
+    radial-gradient(circle at 88% 82%, rgba(255, 20, 70, 0.08), transparent 50%);
+  color: #FFFFFF;
+}
+
+.zycus-section-dark a { color: var(--dodger-blue); }
+
+.zycus-logos:hover .zycus-logos__track { animation-play-state: paused; }
+
+.elementor-accordion-item .elementor-tab-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+  overflow: hidden;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+.elementor-accordion-item .elementor-tab-content > * {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.elementor-accordion-item .elementor-tab-title.elementor-active + .elementor-tab-content,
+.elementor-accordion-item .elementor-tab-content.elementor-active {
+  grid-template-rows: 1fr;
+  padding: 16px 20px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.zycus-eyebrow {
+  display: inline-block;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: linear-gradient(90deg, var(--torea-bay), var(--dodger-blue), var(--torch-red));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@supports not ((background-clip: text) or (-webkit-background-clip: text)) {
+  .zycus-eyebrow {
+    color: var(--torea-bay);
+    -webkit-text-fill-color: var(--torea-bay);
+    background: none;
+  }
+}
