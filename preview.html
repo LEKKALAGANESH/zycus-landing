@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zycus — AI-Powered Source-to-Pay Procurement | Book a Demo</title>
+  <meta name="description" content="Cut procurement costs by 40% with Merlin AI. Automate sourcing, contracting, and invoicing end-to-end. Book a personalized demo today.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+/* =========================================================
+   TOKENS
+   ========================================================= */
+:root {
+  --torea-bay:#0f3d81;--dodger-blue:#40a4fb;--torch-red:#ff1446;
+  --navy:#0f3d81;--teal:#40a4fb;--accent:#ff1446;--text:#0f3d81;
+  --surface-base:#fafbfd;--surface-alt:#f4f7fb;--bg-light:#f4f7fb;
+  --white:#ffffff;--ink-subtle:#4a5b7a;--muted:#4a5b7a;--border:#d6deeb;
+  --focus-ring:3px solid #ff1446;--focus-offset:3px;
+  --shadow-sm:0 1px 2px rgba(15,61,129,.06),0 1px 3px rgba(15,61,129,.04);
+  --shadow-md:0 4px 6px -1px rgba(15,61,129,.08),0 2px 4px -1px rgba(15,61,129,.04);
+  --shadow-lg:0 20px 40px -10px rgba(15,61,129,.2),0 8px 16px -8px rgba(15,61,129,.14);
+  --radius-sm:8px;--radius-md:12px;--radius-lg:16px;
+  --focus-ring:3px solid #ff1446;--focus-offset:3px;
+  --faq-dur:420ms;--faq-ease:cubic-bezier(.32,.72,0,1);
+  --ease-out-expo:cubic-bezier(.16,1,.3,1);
+  --dur-sm:350ms;--dur-md:500ms;--dur-lg:800ms;--slide-md:16px;
+}
+
+/* =========================================================
+   RESET + BASE
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{margin:0;overflow-x:hidden;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--surface-base);-webkit-font-smoothing:antialiased}
+@media(min-width:768px){body{font-size:17px}}
+img,svg{max-width:100%;display:block}
+a{color:var(--navy);text-decoration:none;transition:color .15s ease}
+a:hover{color:var(--teal)}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer}
+
+.skip-link{position:absolute;left:-9999px;top:8px;z-index:200;padding:10px 16px;background:var(--torea-bay);color:#fff;border-radius:8px;font-weight:600;text-decoration:none}
+.skip-link:focus{left:8px}
+:focus-visible{outline:var(--focus-ring);outline-offset:var(--focus-offset);border-radius:4px}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+.h1,.h2,.h3,h1,h2,h3{color:var(--navy);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:0 0 16px;overflow-wrap:break-word}
+.h1,h1{font-size:32px}.h2,h2{font-size:28px}.h3,h3{font-size:22px;line-height:1.25}
+@media(min-width:768px){.h1,h1{font-size:48px}.h2,h2{font-size:36px}.h3,h3{font-size:24px}}
+@media(min-width:1280px){.h1,h1{font-size:56px}}
+
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;background:linear-gradient(90deg,var(--torea-bay) 0%,var(--dodger-blue) 50%,var(--torch-red) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.lead{font-size:17px;line-height:1.6;color:var(--text);margin:0 0 32px}
+@media(min-width:768px){.lead{font-size:19px}}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+@media(min-width:768px){.container{padding:0 32px}}
+.container--narrow{max-width:860px}
+.section{padding:48px 0}
+@media(min-width:768px){.section{padding:80px 0}}
+.section--light{background:var(--bg-light)}
+.section--dark{background:radial-gradient(900px 400px at 10% 0%,rgba(64,164,251,.14),transparent 60%),radial-gradient(700px 500px at 90% 100%,rgba(255,20,70,.08),transparent 60%),var(--torea-bay);color:var(--white)}
+.section__head{text-align:center;max-width:720px;margin:0 auto 48px}
+.section__sub{font-size:17px;color:var(--muted);line-height:1.6;margin:0}
+.section--dark .section__sub{color:rgba(255,255,255,.75)}
+.section--dark .h2,.section--dark h2{color:var(--white)}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:14px 32px;border-radius:10px;font-weight:600;font-size:16px;line-height:1.2;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease;text-align:center;white-space:nowrap}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn:active{transform:translateY(0)}
+.btn--accent,.btn--primary{background:var(--torch-red);color:var(--white);border-color:var(--torch-red)}
+.btn--accent:hover,.btn--primary:hover{background:#e20035;border-color:#e20035;color:var(--white)}
+.btn--secondary{background:transparent;color:var(--dodger-blue);border-color:var(--dodger-blue)}
+.btn--secondary:hover{background:var(--dodger-blue);color:#fff}
+.btn--lg{font-size:17px;padding:18px 36px}
+.btn--sm{padding:10px 20px;font-size:14px}
+.btn--block{width:100%}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--border);transition:background var(--dur-sm) var(--ease-out-expo),box-shadow var(--dur-sm) var(--ease-out-expo)}
+@media(min-width:768px){.site-header{background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}}
+.site-header.is-scrolled{background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px);box-shadow:0 1px 0 rgba(15,61,129,.08)}
+.site-header__inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-top:16px;padding-bottom:16px;gap:16px}
+.menu-btn{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:48px;height:48px;padding:0;margin-left:auto;background:var(--torea-bay);border:0;border-radius:10px;cursor:pointer;transition:background 200ms ease}
+.menu-btn:hover{background:var(--torch-red)}
+.menu-btn span{display:block;width:22px;height:3px;background:#fff;border-radius:2px;transition:transform 250ms cubic-bezier(.32,.72,0,1),opacity 200ms ease}
+.menu-btn[aria-expanded="true"]{background:var(--torch-red)}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--torea-bay)}
+.brand__logo{width:auto;height:38px;border-radius:10px}
+@media(min-width:768px){.brand__logo{height:44px;border-radius:2rem}}
+.site-nav-desktop{display:none}
+.site-header__cta{display:none}
+@media(min-width:768px){
+  .menu-btn{display:none}
+  .site-nav-desktop{display:inline-flex;gap:32px;margin-left:auto}
+  .site-nav-desktop a{font-size:15px;font-weight:500;color:var(--text)}
+  .site-nav-desktop a:hover{color:var(--torch-red)}
+  .site-header__cta{display:inline-flex;margin-left:0}
+}
+.mobile-menu{position:fixed;inset:0;z-index:200;visibility:hidden;pointer-events:none}
+.mobile-menu.is-open{visibility:visible;pointer-events:auto}
+.mobile-menu__backdrop{position:absolute;inset:0;background:rgba(15,61,129,.6);opacity:0;transition:opacity 260ms ease}
+.mobile-menu.is-open .mobile-menu__backdrop{opacity:1}
+.mobile-menu__panel{position:absolute;top:0;right:0;bottom:0;width:min(340px,86vw);padding:88px 28px 28px;background:#fff;box-shadow:-24px 0 48px -12px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:18px;transform:translateX(100%);transition:transform 300ms cubic-bezier(.32,.72,0,1)}
+.mobile-menu.is-open .mobile-menu__panel{transform:translateX(0)}
+.mobile-menu__panel a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;font-size:18px;font-weight:600;color:var(--torea-bay);border-bottom:1px solid var(--border)}
+.mobile-menu__panel a:last-of-type{border-bottom:0}
+.mobile-menu__panel a:hover{color:var(--torch-red)}
+.mobile-menu__cta{align-self:stretch!important;justify-content:center;margin-top:12px}
+.mobile-menu__close{position:absolute;top:20px;right:20px;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0;background:var(--surface-alt);color:var(--torea-bay);border:0;border-radius:50%;font-size:28px;line-height:1;cursor:pointer}
+.mobile-menu__close:hover{background:var(--torch-red);color:#fff}
+body.menu-open{overflow:hidden}
+@media(min-width:768px){.mobile-menu{display:none}}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;padding:48px 0;overflow:hidden;isolation:isolate;background:radial-gradient(900px 500px at 85% 10%,rgba(64,164,251,.14),transparent 60%),radial-gradient(1000px 600px at 10% 90%,rgba(15,61,129,.12),transparent 65%),linear-gradient(180deg,#fff 0%,#f4f7fb 100%)}
+.hero::before{content:"";position:absolute;inset:-20%;z-index:-1;background:radial-gradient(40% 40% at 30% 30%,rgba(64,164,251,.18),transparent 70%),radial-gradient(35% 35% at 75% 65%,rgba(15,61,129,.22),transparent 70%),radial-gradient(30% 30% at 55% 85%,rgba(255,20,70,.08),transparent 70%);filter:blur(40px);animation:meshDrift 24s ease-in-out infinite alternate;pointer-events:none}
+@keyframes meshDrift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-3%,2%,0) scale(1.05)}100%{transform:translate3d(2%,-1%,0) scale(1.02)}}
+@media(min-width:768px){.hero{padding:80px 0}}
+.hero__grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+@media(min-width:1024px){.hero__grid{grid-template-columns:1.05fr 1fr;gap:64px}}
+.hero__actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+.trust-row{display:flex;flex-direction:column;gap:12px;padding-top:24px;border-top:1px solid var(--border)}
+.trust-row__item{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);line-height:1.5}
+.check{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(0,191,166,.12);color:var(--teal);font-size:12px;font-weight:700;margin-top:1px}
+
+/* Dashboard mock */
+.hero__visual{perspective:1200px}
+.dashboard-mock{background:linear-gradient(135deg,var(--torea-bay) 0%,#133a6b 50%,#1a4a7a 100%);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);overflow:hidden;border:1px solid rgba(255,255,255,.08);transform:rotate(-.5deg)}
+.dashboard-mock__chrome{display:flex;gap:6px;padding:12px 16px;background:rgba(0,0,0,.25);border-bottom:1px solid rgba(255,255,255,.06)}
+.dashboard-mock__chrome span{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.25)}
+.dashboard-mock__chrome span:nth-child(1){background:#ff5f57}
+.dashboard-mock__chrome span:nth-child(2){background:#febc2e}
+.dashboard-mock__chrome span:nth-child(3){background:#28c840}
+.dashboard-mock__body{display:grid;grid-template-columns:80px 1fr;min-height:320px}
+@media(min-width:560px){.dashboard-mock__body{grid-template-columns:100px 1fr;min-height:360px}}
+.dashboard-mock__sidebar{padding:20px 14px;display:flex;flex-direction:column;gap:10px;background:rgba(0,0,0,.15);border-right:1px solid rgba(255,255,255,.06)}
+.sk{height:10px;border-radius:4px;background:rgba(255,255,255,.12)}
+.sk--lg{height:14px;background:rgba(0,191,166,.5)}
+.dashboard-mock__main{padding:24px;color:var(--white)}
+.dashboard-mock__title{font-size:14px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:20px}
+.dashboard-mock__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px}
+.stat__label{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.stat__value{font-size:20px;font-weight:700;color:var(--teal)}
+.dashboard-mock__chart{display:flex;align-items:flex-end;gap:10px;height:120px;padding:12px;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid rgba(255,255,255,.06)}
+.bar{flex:1;min-height:12px;background:linear-gradient(180deg,var(--teal) 0%,rgba(0,191,166,.3) 100%);border-radius:4px 4px 0 0;transform-origin:bottom}
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+.steps{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:640px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.steps{grid-template-columns:repeat(4,1fr);gap:24px}}
+.step-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:32px 24px;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.step-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:transparent}
+.step-card__num{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--navy) 0%,#133a6b 100%);color:var(--white);font-weight:700;font-size:18px;margin-bottom:20px;box-shadow:0 6px 14px -4px rgba(10,37,64,.4)}
+.step-card__title{font-size:20px;font-weight:600;color:var(--navy);margin:0 0 8px}
+.step-card__desc{margin:0;color:var(--muted);font-size:15px;line-height:1.6}
+
+/* =========================================================
+   LOGOS
+   ========================================================= */
+.logos{background:var(--bg-light);padding:48px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.logos__title{text-align:center;color:var(--muted);font-weight:600;font-size:16px;letter-spacing:.02em;margin:0 0 32px}
+.logos__viewport{position:relative;overflow:hidden;padding:8px 0;mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%)}
+.logos__track{display:flex;gap:40px;width:max-content;will-change:transform;animation:marquee 42s linear infinite}
+.logos__track--fast{animation-duration:32s}
+.logos__track--slow{animation-duration:62s}
+.logos__track--reverse{animation-name:marqueeReverse;animation-duration:56s}
+@keyframes marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes marqueeReverse{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
+.logos:hover .logos__track,.logos:focus-within .logos__track{animation-play-state:paused}
+.logo-box{flex:0 0 auto;display:flex;align-items:center;justify-content:center;height:72px;width:160px;padding:12px 20px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-sm);transition:transform .25s ease,box-shadow .25s ease;position:relative}
+.logo-box img{max-width:100%;max-height:100%;object-fit:contain}
+.logo-box:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 32px -12px rgba(15,61,129,.28)}
+@media(max-width:639px){.logo-box{width:120px;height:56px;padding:10px 14px}}
+
+/* =========================================================
+   TESTIMONIALS
+   ========================================================= */
+.testimonials{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:768px){.testimonials{grid-template-columns:1fr 1fr;gap:32px}}
+.testimonial{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:40px 32px 32px;position:relative;box-shadow:0 20px 40px -16px rgba(0,0,0,.4);transition:transform .2s ease,box-shadow .2s ease;backdrop-filter:blur(8px)}
+.testimonial:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.testimonial__quote-mark{position:absolute;top:12px;left:24px;font-size:72px;line-height:1;color:var(--dodger-blue);opacity:.5;font-family:Georgia,serif}
+.testimonial__quote{margin:0 0 24px;font-size:17px;line-height:1.65;color:rgba(255,255,255,.92);font-weight:400;quotes:none}
+.testimonial__author{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14)}
+.testimonial__avatar{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--navy) 0%,var(--teal) 100%);color:var(--white);font-weight:600;font-size:14px;display:inline-flex;align-items:center;justify-content:center}
+.testimonial__name{font-weight:600;color:var(--white);font-size:15px;line-height:1.3}
+.testimonial__title{font-size:14px;color:rgba(255,255,255,.7);line-height:1.4}
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+.faq{display:flex;flex-direction:column;gap:12px}
+.faq__item{position:relative;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:border-color var(--faq-dur) var(--faq-ease),box-shadow var(--faq-dur) var(--faq-ease),transform var(--faq-dur) var(--faq-ease)}
+.faq__item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--torch-red),var(--dodger-blue));transform:scaleY(0);transform-origin:top;transition:transform var(--faq-dur) var(--faq-ease)}
+.faq__item:hover,.faq__item.is-open{border-color:var(--dodger-blue);transform:translateY(-2px)}
+.faq__item:hover{box-shadow:0 14px 28px -14px rgba(15,61,129,.18)}
+.faq__item.is-open{box-shadow:0 22px 40px -18px rgba(15,61,129,.28)}
+.faq__item.is-open::before{transform:scaleY(1)}
+.faq__q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:var(--torea-bay);list-style:none;user-select:none;transition:background var(--faq-dur) var(--faq-ease)}
+.faq__q::-webkit-details-marker{display:none}
+.faq__q:hover{background:rgba(64,164,251,.06)}
+.faq__icon{flex-shrink:0;width:28px;height:28px;position:relative;border-radius:50%;background:var(--bg-light);transition:transform var(--faq-dur) var(--faq-ease),background var(--faq-dur) var(--faq-ease)}
+.faq__item:hover .faq__icon{background:rgba(64,164,251,.14)}
+.faq__item.is-open .faq__icon{background:var(--torch-red);transform:rotate(45deg)}
+.faq__icon::before,.faq__icon::after{content:"";position:absolute;background:var(--torea-bay);border-radius:2px;top:50%;left:50%;transition:background var(--faq-dur) var(--faq-ease)}
+.faq__icon::before{width:14px;height:2.5px;transform:translate(-50%,-50%)}
+.faq__icon::after{width:2.5px;height:14px;transform:translate(-50%,-50%)}
+.faq__item.is-open .faq__icon::before,.faq__item.is-open .faq__icon::after{background:var(--white)}
+.faq__a-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows var(--faq-dur) var(--faq-ease)}
+.faq__item.is-open .faq__a-wrap{grid-template-rows:1fr}
+.faq__a{overflow:hidden;min-height:0;padding:0 24px 24px;color:var(--text);font-size:15px;line-height:1.65;opacity:0;transition:opacity var(--faq-dur) var(--faq-ease)}
+.faq__item.is-open .faq__a{opacity:1}
+@media(min-width:768px){.faq__q{font-size:17px;padding:22px 28px}.faq__a{padding:0 28px 26px;font-size:16px}}
+
+/* =========================================================
+   DEMO FORM
+   ========================================================= */
+.demo-card{max-width:700px;margin:0 auto;background:var(--white);color:var(--text);padding:40px 24px;border-radius:var(--radius-lg);box-shadow:0 30px 60px -20px rgba(0,0,0,.35)}
+@media(min-width:640px){.demo-card{padding:48px}}
+.demo-card .section__head{margin-bottom:32px;text-align:left}
+.demo-card .h2,.demo-card h2{color:var(--navy)}
+.demo-card .section__sub{color:var(--muted)}
+.demo-form{display:flex;flex-direction:column;gap:28px}
+.form-step{border:1px solid var(--border);margin:0;padding:20px;border-radius:var(--radius-md);background:var(--bg-light)}
+.form-step__legend{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:0 6px;margin-bottom:16px}
+.form-step__label{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;background:var(--torea-bay);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:background 200ms ease}
+.form-step:focus-within .form-step__label{background:var(--torch-red)}
+.form-step__title{font-weight:600;color:var(--navy);font-size:16px}
+.form-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:560px){.form-grid{grid-template-columns:1fr 1fr}.form-field--full{grid-column:1/-1}}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field label{font-size:14px;font-weight:600;color:var(--torea-bay);line-height:1.4}
+.req{color:var(--torch-red);margin-left:2px;font-weight:700}
+.form-field input,.form-field select,.form-field textarea{width:100%;min-height:48px;padding:14px 16px;border:2px solid var(--border);border-radius:10px;background:var(--white);font-family:inherit;font-size:16px;color:var(--torea-bay);line-height:1.4;transition:border-color .15s ease,box-shadow .15s ease}
+.form-field input:hover,.form-field select:hover,.form-field textarea:hover{border-color:var(--dodger-blue)}
+.form-field input:focus-visible,.form-field select:focus-visible,.form-field textarea:focus-visible{outline:none;border-color:var(--torch-red);box-shadow:0 0 0 3px rgba(255,20,70,.22)}
+.form-field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230F3D81' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;background-size:16px;padding-right:48px;cursor:pointer}
+.form-field textarea{resize:vertical;min-height:110px}
+.demo-form__microcopy{text-align:center;font-size:13px;color:var(--muted);margin:0}
+.form-step-nav{display:flex;gap:12px;margin-top:16px;justify-content:flex-end}
+.btn-back,.btn-next{padding:12px 22px;border-radius:8px;font-weight:600;font-size:15px;cursor:pointer;border:2px solid var(--torea-bay);background:var(--white);color:var(--torea-bay);transition:background .15s ease,color .15s ease,transform .15s ease}
+.btn-back:hover,.btn-next:hover{background:var(--torea-bay);color:#fff;transform:translateY(-1px)}
+.btn-next{background:var(--torea-bay);color:#fff}
+
+/* =========================================================
+   FOOTER + MOBILE CTA
+   ========================================================= */
+.site-footer{background:var(--navy);color:rgba(255,255,255,.7);padding:32px 0;padding-bottom:calc(32px + 80px)}
+@media(min-width:768px){.site-footer{padding-bottom:32px}}
+.site-footer__inner{display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+@media(min-width:640px){.site-footer__inner{flex-direction:row;justify-content:space-between;text-align:left}}
+.brand--footer{color:var(--white)}
+.site-footer__copy{margin:0;font-size:14px}
+.site-footer__link{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:500}
+.site-footer__link:hover{color:var(--dodger-blue)}
+.mobile-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:12px 16px;background:rgba(255,255,255,.96);backdrop-filter:saturate(180%) blur(10px);border-top:1px solid var(--border);box-shadow:0 -4px 16px -4px rgba(10,37,64,.1);transform:translateY(calc(100% + 16px));opacity:0;transition:transform var(--dur-md) var(--ease-out-expo),opacity var(--dur-md) var(--ease-out-expo);pointer-events:none}
+.mobile-cta.is-visible{transform:translateY(0);opacity:1;pointer-events:auto}
+@media(min-width:768px){.mobile-cta{display:none}}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+[data-reveal]{opacity:0;transform:translateY(var(--slide-md));transition:opacity var(--dur-md) var(--ease-out-expo),transform var(--dur-md) var(--ease-out-expo);transition-delay:var(--d,0ms)}
+[data-reveal="scale"]{transform:scale(.96)}
+[data-reveal].is-visible{opacity:1;transform:none}
+@keyframes barGrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.dashboard-mock__chart .bar{animation:barGrow var(--dur-lg) var(--ease-out-expo) both;animation-delay:calc(600ms + var(--i,0) * 80ms)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}[data-reveal]{opacity:1!important;transform:none!important}}
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="scroll-sentinel" aria-hidden="true" style="position:absolute;top:0;height:80px;width:1px;pointer-events:none;"></div>
+
+<header class="site-header" role="banner">
+  <div class="container site-header__inner">
+    <a href="#" class="brand" aria-label="Zycus home">
+      <img src="wp-content/themes/zycus-elementor/assets/img/zycus-logo.webp"
+           alt="Zycus Logo" class="brand__logo" width="160" height="44" decoding="async" fetchpriority="high">
+    </a>
+    <nav class="site-nav-desktop" aria-label="Primary">
+      <a href="#how-it-works">How it works</a>
+      <a href="#testimonials">Customers</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#demo-form" class="btn btn--primary btn--sm site-header__cta">Book My Demo</a>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu__backdrop" data-menu-close></div>
+  <nav class="mobile-menu__panel" aria-label="Mobile primary">
+    <button type="button" class="mobile-menu__close" data-menu-close aria-label="Close">&times;</button>
+    <a href="#how-it-works">How it works</a>
+    <a href="#testimonials">Customers</a>
+    <a href="#faq">FAQ</a>
+    <a href="#demo-form" class="btn btn--primary mobile-menu__cta">Book My Demo</a>
+  </nav>
+</div>
+
+<main id="main-content" role="main">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="container hero__grid">
+    <div class="hero__copy" data-stagger="120">
+      <span class="eyebrow" data-reveal="up">Agentic AI for Source-to-Pay</span>
+      <h1 id="hero-heading" class="h1" data-reveal="up">Cut Procurement Costs by 40% with Agentic AI</h1>
+      <p class="lead" data-reveal="up">Zycus Merlin AI automates sourcing, contracting, and invoice processing end-to-end — so your team closes deals faster and pays suppliers without chasing approvals. Trusted by 1,200+ enterprises worldwide.</p>
+      <div class="hero__actions" data-reveal="up">
+        <a href="#demo-form" class="btn btn--accent btn--lg">Book My Demo</a>
+      </div>
+      <ul class="trust-row" role="list" data-reveal="up">
+        <li class="trust-row__item"><span class="check" aria-hidden="true">&#10003;</span>Recognized as a Leader by Gartner&reg; Magic Quadrant&trade;</li>
+        <li class="trust-row__item"><span class="check" aria-hidden="true">&#10003;</span>SOC 2 Type II &amp; ISO 27001 Certified</li>
+        <li class="trust-row__item"><span class="check" aria-hidden="true">&#10003;</span>Live in 250+ enterprises across 100 countries</li>
+      </ul>
+    </div>
+    <div class="hero__visual" data-reveal="scale">
+      <div class="dashboard-mock">
+        <div class="dashboard-mock__chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="dashboard-mock__body">
+          <div class="dashboard-mock__sidebar" aria-hidden="true">
+            <div class="sk sk--lg"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div>
+          </div>
+          <div class="dashboard-mock__main">
+            <div class="dashboard-mock__title">Merlin AI Dashboard</div>
+            <div class="dashboard-mock__stats">
+              <div class="stat"><div class="stat__label">Spend Under Mgmt</div><div class="stat__value" data-counter="4.2" data-prefix="$" data-suffix="B" data-decimals="1">$4.2B</div></div>
+              <div class="stat"><div class="stat__label">Cycle Time</div><div class="stat__value" data-counter="-62" data-suffix="%">-62%</div></div>
+              <div class="stat"><div class="stat__label">Auto-Approved</div><div class="stat__value" data-counter="87" data-suffix="%">87%</div></div>
+            </div>
+            <div class="dashboard-mock__chart">
+              <div class="bar" style="--i:0;height:40%"></div>
+              <div class="bar" style="--i:1;height:62%"></div>
+              <div class="bar" style="--i:2;height:55%"></div>
+              <div class="bar" style="--i:3;height:78%"></div>
+              <div class="bar" style="--i:4;height:68%"></div>
+              <div class="bar" style="--i:5;height:90%"></div>
+              <div class="bar" style="--i:6;height:82%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="section section--light" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="section__head" data-reveal="up">
+      <h2 id="how-heading" class="h2">From Intake to Payment — Automated End-to-End</h2>
+      <p class="section__sub">Merlin AI agents work alongside your team across every step of the Source-to-Pay lifecycle — eliminating manual handoffs, policy leakage, and approval bottlenecks.</p>
+    </div>
+    <ol class="steps" role="list" data-stagger="100">
+      <li class="step-card" data-reveal="up"><div class="step-card__num" aria-hidden="true">1</div><h3 class="step-card__title">Intake</h3><p class="step-card__desc">Employees submit requests in natural language; Merlin routes them to the right buying channel automatically.</p></li>
+      <li class="step-card" data-reveal="up"><div class="step-card__num" aria-hidden="true">2</div><h3 class="step-card__title">Sourcing</h3><p class="step-card__desc">AI-drafted RFPs, auto-scored supplier responses, and guided negotiation shave weeks off every event.</p></li>
+      <li class="step-card" data-reveal="up"><div class="step-card__num" aria-hidden="true">3</div><h3 class="step-card__title">Contracting</h3><p class="step-card__desc">Redline clauses, track obligations, and surface risk instantly with a contract AI trained on your playbook.</p></li>
+      <li class="step-card" data-reveal="up"><div class="step-card__num" aria-hidden="true">4</div><h3 class="step-card__title">Procure-to-Pay</h3><p class="step-card__desc">Touchless POs, auto-matched invoices, and on-time payments keep suppliers happy and your books clean.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- LOGO CAROUSEL -->
+<section class="logos" aria-labelledby="logos-heading" data-reveal="up">
+  <div class="container">
+    <h3 id="logos-heading" class="logos__title">Trusted by procurement leaders worldwide</h3>
+    <div class="logos__viewport" data-marquee>
+      <ul class="logos__track logos__track--fast" role="list" aria-hidden="true">
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/microsoft.jpg" alt="" loading="eager" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/apple.jpg" alt="" loading="eager" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/samsung.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/meta.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/netflix.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/mercedes-benz.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/bmw.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/microsoft.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/apple.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/samsung.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/meta.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/netflix.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/mercedes-benz.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/bmw.jpg" alt="" loading="lazy" width="140" height="48"></li>
+      </ul>
+    </div>
+    <div class="logos__viewport" data-marquee style="margin-top:16px">
+      <ul class="logos__track logos__track--reverse logos__track--slow" role="list" aria-hidden="true">
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/adidas.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/nike.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/cocacola.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/starbucks.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/youtube.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/insta.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/adidas.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/nike.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/cocacola.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/starbucks.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/youtube.jpg" alt="" loading="lazy" width="140" height="48"></li>
+        <li class="logo-box"><img src="wp-content/themes/zycus-elementor/assets/img/logos/insta.jpg" alt="" loading="lazy" width="140" height="48"></li>
+      </ul>
+    </div>
+    <ul class="visually-hidden" aria-label="Trusted by these enterprises">
+      <li>Microsoft</li><li>Apple</li><li>Samsung</li><li>Meta</li><li>Netflix</li>
+      <li>Mercedes-Benz</li><li>BMW</li><li>Adidas</li><li>Nike</li><li>Coca-Cola</li>
+      <li>Starbucks</li><li>YouTube</li><li>Instagram</li>
+    </ul>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section section--dark" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <div class="section__head" data-reveal="up">
+      <h2 id="testimonials-heading" class="h2">Real Results from Real Procurement Leaders</h2>
+      <p class="section__sub">Enterprises running Merlin AI in production — and the numbers they're hitting.</p>
+    </div>
+    <div class="testimonials" data-stagger="150">
+      <article class="testimonial" data-reveal="up">
+        <div class="testimonial__quote-mark" aria-hidden="true">&ldquo;</div>
+        <blockquote class="testimonial__quote">Zycus Merlin AI cut our invoice processing time by 75% in the first six months. What used to take a team of twelve now runs with four people and zero backlog. The AI doesn&rsquo;t just automate &mdash; it catches policy exceptions humans missed for years.</blockquote>
+        <footer class="testimonial__author">
+          <div class="testimonial__avatar" aria-hidden="true">PV</div>
+          <div><div class="testimonial__name">Priya Venkataraman</div><div class="testimonial__title">Chief Procurement Officer, Global Consumer Goods Leader</div></div>
+        </footer>
+      </article>
+      <article class="testimonial" data-reveal="up">
+        <div class="testimonial__quote-mark" aria-hidden="true">&ldquo;</div>
+        <blockquote class="testimonial__quote">We reduced supplier query response times by 80% and recovered $4.2M in duplicate and off-contract spend in year one. Zycus paid for itself before the rollout was even complete.</blockquote>
+        <footer class="testimonial__author">
+          <div class="testimonial__avatar" aria-hidden="true">DO</div>
+          <div><div class="testimonial__name">Daniel Osei</div><div class="testimonial__title">Chief Financial Officer, Multinational Industrial Group</div></div>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section section--light" aria-labelledby="faq-heading">
+  <div class="container container--narrow">
+    <div class="section__head" data-reveal="up">
+      <h2 id="faq-heading" class="h2">Your Questions, Answered</h2>
+      <p class="section__sub">Everything procurement, finance, and IT leaders ask us before signing.</p>
+    </div>
+    <div class="faq" data-stagger="80">
+      <details class="faq__item" data-reveal="up">
+        <summary class="faq__q"><span>Will Zycus integrate with our existing ERP (SAP, Oracle, NetSuite)?</span><span class="faq__icon" aria-hidden="true"></span></summary>
+        <div class="faq__a-wrap"><div class="faq__a">Yes. Zycus ships with certified, pre-built connectors for SAP S/4HANA, SAP ECC, Oracle Fusion, Oracle EBS, NetSuite, Microsoft Dynamics, and Workday. Most integrations go live in under 4 weeks and sync invoices, POs, master data, and GL codes bi-directionally.</div></div>
+      </details>
+      <details class="faq__item" data-reveal="up">
+        <summary class="faq__q"><span>How long does implementation actually take?</span><span class="faq__icon" aria-hidden="true"></span></summary>
+        <div class="faq__a-wrap"><div class="faq__a">A typical mid-market rollout of Source-to-Contract goes live in 8–12 weeks. Full Source-to-Pay across multiple business units is usually 16–20 weeks. Our implementation team handles configuration, integration, and user enablement — your team focuses on process design.</div></div>
+      </details>
+      <details class="faq__item" data-reveal="up">
+        <summary class="faq__q"><span>How is our procurement data kept secure?</span><span class="faq__icon" aria-hidden="true"></span></summary>
+        <div class="faq__a-wrap"><div class="faq__a">Zycus is SOC 2 Type II, ISO 27001, and ISO 27701 certified. All data is encrypted in transit (TLS 1.3) and at rest (AES-256), hosted in your choice of AWS region with full data residency controls. We're GDPR, CCPA, and HIPAA compliant.</div></div>
+      </details>
+      <details class="faq__item" data-reveal="up">
+        <summary class="faq__q"><span>What kind of ROI can we actually expect?</span><span class="faq__icon" aria-hidden="true"></span></summary>
+        <div class="faq__a-wrap"><div class="faq__a">Customers typically report 40–60% reduction in cycle times, 5–8% savings on addressable spend, and 70%+ reduction in manual invoice handling within 12 months. We'll share a custom ROI model during your demo based on your current spend and team size.</div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO FORM -->
+<section id="demo-form" class="section section--dark" aria-labelledby="demo-heading">
+  <div class="container">
+    <div class="demo-card">
+      <div class="section__head">
+        <h2 id="demo-heading" class="h2">See Merlin AI Live on Your Own Data</h2>
+        <p class="section__sub">Book a 30-minute working session with a Zycus solution architect. We'll plug Merlin into a sample of your spend and walk you through the results.</p>
+      </div>
+      <form id="demo-form-el" class="demo-form" novalidate>
+        <fieldset class="form-step">
+          <legend class="form-step__legend"><span class="form-step__label">Step 1 of 3</span><span class="form-step__title">About You</span></legend>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <label for="email">Work Email <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="you@company.com">
+            </div>
+            <div class="form-field">
+              <label for="first_name">First Name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="first_name" name="first_name" required>
+            </div>
+            <div class="form-field">
+              <label for="last_name">Last Name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="last_name" name="last_name" required>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="form-step" hidden>
+          <legend class="form-step__legend"><span class="form-step__label">Step 2 of 3</span><span class="form-step__title">About Your Company</span></legend>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <label for="company_name">Company Name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="company_name" name="company_name" required>
+            </div>
+            <div class="form-field">
+              <label for="company_size">Company Size <span class="req" aria-hidden="true">*</span></label>
+              <select id="company_size" name="company_size" required>
+                <option value="" disabled selected>Select size&hellip;</option>
+                <optgroup label="SMB"><option value="small">1–49 — Startup / SMB</option><option value="mid">50–499 — Mid-Market</option></optgroup>
+                <optgroup label="Enterprise"><option value="enterprise">500–4,999 — Enterprise</option><option value="large_enterprise">5,000+ — Large Enterprise</option></optgroup>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="role">Your Role <span class="req" aria-hidden="true">*</span></label>
+              <select id="role" name="role" required>
+                <option value="" disabled selected>Select role&hellip;</option>
+                <optgroup label="Decision Makers"><option value="procurement_leader">Procurement Leader (CPO / VP)</option><option value="finance_leader">Finance Leader (CFO / VP Finance)</option></optgroup>
+                <optgroup label="Practitioners"><option value="procurement_team">Procurement Team Member</option><option value="it">IT / Systems Owner</option></optgroup>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="form-step" hidden>
+          <legend class="form-step__legend"><span class="form-step__label">Step 3 of 3</span><span class="form-step__title">Your Priority</span></legend>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <label for="use_case">Primary Use Case <span class="req" aria-hidden="true">*</span></label>
+              <select id="use_case" name="use_case" required>
+                <option value="" disabled selected>What should Merlin AI solve first?</option>
+                <optgroup label="Upstream"><option value="s2c">Sourcing &amp; Contract Management</option><option value="supplier_mgmt">Supplier Management &amp; Risk</option></optgroup>
+                <optgroup label="Downstream"><option value="ap">Invoice Automation &amp; AP</option></optgroup>
+                <optgroup label="Full Platform"><option value="s2p">End-to-End Source-to-Pay</option></optgroup>
+              </select>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="notes">Anything else we should know?</label>
+              <textarea id="notes" name="notes" rows="4" placeholder="Optional — current systems, timelines, constraints…"></textarea>
+            </div>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn--primary btn--lg btn--block">Book My Demo</button>
+        <p class="demo-form__microcopy">&#128274; Secure &amp; confidential. No spam, no credit card required.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container site-footer__inner">
+    <div class="brand brand--footer">
+      <img src="wp-content/themes/zycus-elementor/assets/img/zycus-logo.webp" alt="Zycus" class="brand__logo" width="140" height="38" loading="lazy" style="filter:brightness(0) invert(1);">
+    </div>
+    <p class="site-footer__copy">
+      &copy; 2026 Zycus Inc. All rights reserved. &nbsp;|&nbsp;
+      <a href="#" class="site-footer__link">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="#" class="site-footer__link">Terms of Use</a>
+    </p>
+  </div>
+</footer>
+
+<div class="mobile-cta" role="complementary" aria-label="Quick actions">
+  <a href="#demo-form" class="btn btn--accent btn--block">Book Demo</a>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){document.querySelectorAll('[data-reveal]').forEach(e=>e.classList.add('is-visible'));return;}
+
+  document.querySelectorAll('[data-stagger]').forEach(g=>{
+    const step=parseInt(g.getAttribute('data-stagger'))||80;let i=0;
+    Array.from(g.children).forEach(c=>{if(c.hasAttribute('data-reveal')){c.style.setProperty('--d',(i*step)+'ms');i++;}});
+  });
+
+  requestAnimationFrame(()=>document.querySelectorAll('.hero [data-reveal]').forEach(e=>e.classList.add('is-visible')));
+
+  const obs=new IntersectionObserver((entries,o)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');o.unobserve(e.target);}});},{rootMargin:'0px 0px -80px 0px',threshold:.05});
+  document.querySelectorAll('[data-reveal]').forEach(e=>{if(!e.closest('.hero'))obs.observe(e);});
+
+  // Sticky header
+  const sentinel=document.querySelector('.scroll-sentinel'),header=document.querySelector('.site-header');
+  if(sentinel&&header)new IntersectionObserver(en=>en.forEach(e=>header.classList.toggle('is-scrolled',!e.isIntersecting))).observe(sentinel);
+
+  // Mobile CTA
+  const cta=document.querySelector('.mobile-cta'),hero=document.querySelector('.hero'),form=document.querySelector('#demo-form');
+  if(cta){
+    const state={heroIn:!!hero,formIn:false};
+    const apply=()=>cta.classList.toggle('is-visible',!state.heroIn&&!state.formIn);
+    const ctaObs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.target===hero)state.heroIn=e.isIntersecting;if(e.target===form)state.formIn=e.isIntersecting;});apply();},{threshold:.1});
+    if(hero)ctaObs.observe(hero);if(form)ctaObs.observe(form);
+  }
+
+  // Mobile menu
+  const menuBtn=document.querySelector('.menu-btn'),menuWrap=document.getElementById('mobile-menu');
+  if(menuBtn&&menuWrap){
+    const open=()=>{menuWrap.classList.add('is-open');menuWrap.setAttribute('aria-hidden','false');document.body.classList.add('menu-open');menuBtn.setAttribute('aria-expanded','true');};
+    const close=()=>{menuWrap.classList.remove('is-open');menuWrap.setAttribute('aria-hidden','true');document.body.classList.remove('menu-open');menuBtn.setAttribute('aria-expanded','false');};
+    menuBtn.addEventListener('click',()=>menuWrap.classList.contains('is-open')?close():open());
+    menuWrap.querySelectorAll('[data-menu-close]').forEach(e=>e.addEventListener('click',close));
+    menuWrap.querySelectorAll('.mobile-menu__panel a').forEach(e=>e.addEventListener('click',close));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menuWrap.classList.contains('is-open'))close();});
+  }
+
+  // FAQ accordion
+  const faqItems=[...document.querySelectorAll('details.faq__item')];
+  faqItems.forEach(item=>{
+    const wrap=item.querySelector('.faq__a-wrap');
+    if(wrap)wrap.addEventListener('transitionend',ev=>{if(ev.target===wrap&&ev.propertyName==='grid-template-rows'&&!item.classList.contains('is-open'))item.removeAttribute('open');});
+    const summary=item.querySelector('summary');
+    if(summary)summary.addEventListener('click',e=>{
+      e.preventDefault();
+      const open=item.classList.contains('is-open');
+      faqItems.forEach(o=>{if(o!==item){o.classList.remove('is-open');}});
+      if(open){item.classList.remove('is-open');}else{item.setAttribute('open','');const w=item.querySelector('.faq__a-wrap');if(w)void w.offsetHeight;item.classList.add('is-open');}
+    });
+  });
+
+  // Multi-step form
+  const demoForm=document.querySelector('#demo-form-el');
+  if(demoForm){
+    const steps=[...demoForm.querySelectorAll('.form-step')];
+    let cur=0;
+    const show=idx=>steps.forEach((s,i)=>{s.hidden=i!==idx;});
+    steps.forEach((step,idx)=>{
+      const nav=document.createElement('div');nav.className='form-step-nav';
+      if(idx>0){const b=document.createElement('button');b.type='button';b.className='btn-back';b.textContent='Back';b.addEventListener('click',()=>{cur=idx-1;show(cur);});nav.appendChild(b);}
+      if(idx<steps.length-1){const n=document.createElement('button');n.type='button';n.className='btn-next';n.textContent='Next →';n.addEventListener('click',()=>{cur=idx+1;show(cur);const f=steps[cur].querySelector('input,select,textarea');if(f)f.focus();});nav.appendChild(n);}
+      step.appendChild(nav);
+    });
+    show(0);
+    demoForm.addEventListener('submit',e=>{e.preventDefault();alert('Demo request submitted! In WordPress, Elementor Forms handles this with email notification + redirect to /thank-you/');});
+  }
+})();
+</script>
+</body>
+</html>

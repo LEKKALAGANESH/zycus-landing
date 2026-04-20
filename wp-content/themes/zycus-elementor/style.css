@@ -1,0 +1,25 @@
+/*
+Theme Name: Zycus Elementor
+Theme URI: https://zycus.com
+Author: Zycus
+Author URI: https://zycus.com
+Description: High-conversion Zycus product demo landing page built with Elementor. Features a full-width hero, multi-step demo form, logo marquee, FAQ accordion, testimonials, and GA4/GTM tracking integration.
+Version: 1.0.0
+Requires at least: 6.4
+Tested up to: 6.5
+Requires PHP: 8.1
+License: Proprietary
+Text Domain: zycus-elementor
+*/
+
+/* =========================================================
+   Design Tokens — Zycus 2025/2026 Brand Palette
+   Torch Red  #FF1446  — primary CTA / conversion accents
+   Dodger Blue #40A4FB — secondary links / illustrative accents
+   Torea Bay  #0F3D81  — deep primary text / footer / corporate depth
+   ========================================================= */
+@import url('assets/css/tokens.css');
+@import url('assets/css/global.css');
+@import url('assets/css/components.css');
+@import url('assets/css/animations.css');
+@import url('assets/css/elementor-overrides.css');

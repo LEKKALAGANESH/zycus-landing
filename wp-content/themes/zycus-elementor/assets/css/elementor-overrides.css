@@ -1,0 +1,198 @@
+/* =========================================================
+   Elementor Widget Overrides — Zycus Brand Skin
+   Scoped to avoid bleeding into wp-admin or other themes.
+   ========================================================= */
+
+/* ----------------------------------------------------------
+   Section / Container defaults — reset Elementor padding to
+   our own spacing scale so spacing is set per-section
+---------------------------------------------------------- */
+.elementor-section .elementor-container,
+.e-con-inner {
+  max-width: 1200px;
+}
+
+.elementor-section.elementor-section-boxed > .elementor-container {
+  max-width: 1200px;
+}
+
+/* ----------------------------------------------------------
+   Heading widget — enforce brand typography
+---------------------------------------------------------- */
+.elementor-widget-heading .elementor-heading-title {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--navy);
+  overflow-wrap: break-word;
+}
+
+/* ----------------------------------------------------------
+   Text editor widget — body copy defaults
+---------------------------------------------------------- */
+.elementor-widget-text-editor p,
+.elementor-widget-text-editor li {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* ----------------------------------------------------------
+   Button widget — remap to brand tokens
+---------------------------------------------------------- */
+.elementor-widget-button .elementor-button {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  border-radius: 10px;
+  min-height: 48px;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.elementor-widget-button .elementor-button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.elementor-widget-button .elementor-button:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* ----------------------------------------------------------
+   Accordion widget — skin to match brand FAQ style
+---------------------------------------------------------- */
+.elementor-accordion .elementor-accordion-item {
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  margin-bottom: 12px !important;
+  overflow: hidden !important;
+  transition: border-color var(--faq-dur) var(--faq-ease),
+              box-shadow var(--faq-dur) var(--faq-ease) !important;
+}
+.elementor-accordion .elementor-accordion-item:hover {
+  border-color: var(--dodger-blue) !important;
+  box-shadow: 0 14px 28px -14px rgba(15,61,129,0.18) !important;
+}
+.elementor-accordion .elementor-tab-title {
+  background: var(--white) !important;
+  color: var(--torea-bay) !important;
+  font-family: "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  padding: 20px 24px !important;
+  border-bottom: none !important;
+}
+.elementor-accordion .elementor-tab-title .elementor-accordion-icon {
+  color: var(--torea-bay) !important;
+}
+.elementor-accordion .elementor-tab-title.elementor-active {
+  color: var(--torea-bay) !important;
+  background: rgba(64,164,251,0.04) !important;
+}
+.elementor-accordion .elementor-tab-content {
+  border-top: 1px solid var(--border) !important;
+  padding: 16px 24px 20px !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  color: var(--text) !important;
+  background: var(--white) !important;
+}
+
+/* ----------------------------------------------------------
+   Form widget (Elementor Pro) — brand input skin
+---------------------------------------------------------- */
+.elementor-form .elementor-field-group .elementor-field {
+  font-family: "Inter", sans-serif !important;
+  font-size: 16px !important;
+  color: var(--torea-bay) !important;
+  border: 2px solid var(--border) !important;
+  border-radius: 10px !important;
+  padding: 14px 16px !important;
+  min-height: 48px !important;
+  background: var(--white) !important;
+  transition: border-color .15s ease, box-shadow .15s ease !important;
+}
+.elementor-form .elementor-field-group .elementor-field:hover {
+  border-color: var(--dodger-blue) !important;
+}
+.elementor-form .elementor-field-group .elementor-field:focus {
+  outline: none !important;
+  border-color: var(--torch-red) !important;
+  box-shadow: 0 0 0 3px rgba(255,20,70,0.22) !important;
+}
+.elementor-form .elementor-field-label {
+  font-family: "Inter", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--torea-bay) !important;
+}
+.elementor-form .e-form__buttons .elementor-button {
+  background-color: var(--torch-red) !important;
+  border-color: var(--torch-red) !important;
+  color: var(--white) !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  min-height: 48px !important;
+  width: 100% !important;
+}
+.elementor-form .e-form__buttons .elementor-button:hover {
+  background-color: #e20035 !important;
+  border-color: #e20035 !important;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Form field error state */
+.elementor-form .elementor-field-group.elementor-error .elementor-field {
+  border-color: var(--torch-red) !important;
+  background: #fff5f6 !important;
+}
+.elementor-form .elementor-message.elementor-message-danger {
+  color: var(--torch-red) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+
+/* ----------------------------------------------------------
+   Icon Box widget — step cards
+---------------------------------------------------------- */
+.elementor-widget-icon-box .elementor-icon-box-wrapper {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 32px 24px;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.elementor-widget-icon-box .elementor-icon-box-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+.elementor-widget-icon-box .elementor-icon-box-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  color: var(--navy);
+}
+.elementor-widget-icon-box .elementor-icon-box-description {
+  font-family: "Inter", sans-serif;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ----------------------------------------------------------
+   Remove default Elementor section/column padding to let our
+   CSS classes control spacing (applied per-section in editor)
+---------------------------------------------------------- */
+.elementor-section .elementor-col-100 > .elementor-element-populated {
+  padding: 0;
+}
+
+/* Dark section text color fix */
+.elementor-section[data-section-dark="true"] .elementor-widget-heading .elementor-heading-title,
+.elementor-section[data-section-dark="true"] h1,
+.elementor-section[data-section-dark="true"] h2,
+.elementor-section[data-section-dark="true"] h3 {
+  color: var(--white);
+}

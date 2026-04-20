@@ -1,0 +1,50 @@
+/* =========================================================
+   Design Tokens — Zycus 2025/2026 Brand Palette
+   ========================================================= */
+:root {
+  /* Brand primaries */
+  --torea-bay:   #0f3d81;
+  --dodger-blue: #40a4fb;
+  --torch-red:   #ff1446;
+
+  /* Semantic aliases */
+  --navy:        #0f3d81;
+  --teal:        #40a4fb;
+  --accent:      #ff1446;
+  --text:        #0f3d81;
+
+  /* Surfaces */
+  --surface-base: #fafbfd;
+  --surface-alt:  #f4f7fb;
+  --bg-light:     #f4f7fb;
+  --white:        #ffffff;
+
+  /* Text */
+  --ink-subtle:   #4a5b7a;
+  --muted:        #4a5b7a;
+  --border:       #d6deeb;
+
+  /* Focus */
+  --focus-ring:   3px solid #ff1446;
+  --focus-offset: 3px;
+
+  /* Elevation */
+  --shadow-sm:
+    0 1px 2px rgba(15,61,129,0.06),
+    0 1px 3px rgba(15,61,129,0.04);
+  --shadow-md:
+    0 4px 6px -1px rgba(15,61,129,0.08),
+    0 2px 4px -1px rgba(15,61,129,0.04);
+  --shadow-lg:
+    0 20px 40px -10px rgba(15,61,129,0.2),
+    0 8px 16px -8px rgba(15,61,129,0.14);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* FAQ timing */
+  --faq-dur:  420ms;
+  --faq-ease: cubic-bezier(0.32,0.72,0,1);
+}

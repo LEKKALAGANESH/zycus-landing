@@ -1,0 +1,129 @@
+:root {
+  --ease-out-expo:  cubic-bezier(0.16,1,0.3,1);
+  --ease-out-cubic: cubic-bezier(0.33,1,0.68,1);
+  --dur-micro: 200ms;
+  --dur-sm:    350ms;
+  --dur-md:    500ms;
+  --dur-lg:    800ms;
+  --slide-md:  16px;
+  --slide-lg:  24px;
+}
+
+/* =========================================================
+   Reveal on scroll
+   ========================================================= */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--slide-md));
+  transition: opacity var(--dur-md) var(--ease-out-expo),
+              transform var(--dur-md) var(--ease-out-expo);
+  transition-delay: var(--d, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal="fade"]  { transform: none; }
+[data-reveal="up"]    { transform: translateY(var(--slide-md)); }
+[data-reveal="up-lg"] { transform: translateY(var(--slide-lg)); }
+[data-reveal="scale"] { transform: scale(0.96); }
+[data-reveal].is-visible { opacity: 1; transform: none; }
+
+/* =========================================================
+   Hero bar chart
+   ========================================================= */
+@keyframes barGrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+.dashboard-mock__chart .bar {
+  transform-origin: bottom;
+  animation: barGrow var(--dur-lg) var(--ease-out-expo) both;
+  animation-delay: calc(600ms + var(--i,0) * 80ms);
+}
+
+/* =========================================================
+   Step card
+   ========================================================= */
+.step-card {
+  transition: transform var(--dur-sm) var(--ease-out-expo),
+              box-shadow var(--dur-sm) var(--ease-out-expo),
+              border-color var(--dur-sm) var(--ease-out-expo);
+}
+.step-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px -12px rgba(15,61,129,0.20); border-color: var(--dodger-blue); }
+.step-card__num { transition: transform var(--dur-sm) var(--ease-out-expo), background var(--dur-sm) var(--ease-out-expo); }
+.step-card:hover .step-card__num {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, var(--dodger-blue), var(--torea-bay));
+}
+
+/* =========================================================
+   Logo marquee entrance
+   ========================================================= */
+.logos.is-visible .logos__track .logo-box {
+  animation: logoIntro 700ms cubic-bezier(0.2,0.8,0.2,1) both;
+}
+.logos__track .logo-box:nth-child(1)  { animation-delay: 20ms; }
+.logos__track .logo-box:nth-child(2)  { animation-delay: 60ms; }
+.logos__track .logo-box:nth-child(3)  { animation-delay: 100ms; }
+.logos__track .logo-box:nth-child(4)  { animation-delay: 140ms; }
+.logos__track .logo-box:nth-child(5)  { animation-delay: 180ms; }
+.logos__track .logo-box:nth-child(6)  { animation-delay: 220ms; }
+.logos__track .logo-box:nth-child(7)  { animation-delay: 260ms; }
+.logos__track .logo-box:nth-child(8)  { animation-delay: 300ms; }
+@keyframes logoIntro {
+  from { opacity: 0; transform: translateX(32px) scale(0.96); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+/* =========================================================
+   Testimonials
+   ========================================================= */
+.testimonial { transition: transform var(--dur-md) var(--ease-out-expo), box-shadow var(--dur-md) var(--ease-out-expo); }
+.testimonial:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -16px rgba(15,61,129,0.18); }
+.testimonial__quote-mark { transition: transform var(--dur-md) var(--ease-out-expo); transform-origin: top left; }
+.testimonial:hover .testimonial__quote-mark { transform: scale(1.15) translate(-4px,-4px); }
+
+/* =========================================================
+   Sticky header glass
+   ========================================================= */
+.site-header {
+  transition: background var(--dur-sm) var(--ease-out-expo),
+              backdrop-filter var(--dur-sm) var(--ease-out-expo),
+              box-shadow var(--dur-sm) var(--ease-out-expo);
+}
+.site-header.is-scrolled {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  box-shadow: 0 1px 0 rgba(15,61,129,0.08);
+}
+
+/* =========================================================
+   Sticky mobile CTA slide-up
+   ========================================================= */
+.mobile-cta {
+  transform: translateY(calc(100% + 16px));
+  opacity: 0;
+  transition: transform var(--dur-md) var(--ease-out-expo),
+              opacity var(--dur-md) var(--ease-out-expo);
+  pointer-events: none;
+}
+.mobile-cta.is-visible { transform: translateY(0); opacity: 1; pointer-events: auto; }
+
+/* =========================================================
+   Form
+   ========================================================= */
+.demo-form input, .demo-form select, .demo-form textarea {
+  transition: border-color var(--dur-sm) var(--ease-out-expo),
+              box-shadow var(--dur-sm) var(--ease-out-expo);
+}
+
+/* =========================================================
+   Reduced motion — blanket override (WCAG 2.3.3)
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal]  { opacity: 1 !important; transform: none !important; }
+  .logos__track  { animation: none !important; }
+  .hero::before  { animation: none !important; }
+}
